@@ -5,11 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Sale Reminder</title>
     <!-- Compiled and minified CSS -->
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
     <link rel="stylesheet" href="./assets/css/style.css">
+
+    <!--jQuery Link-->
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+
 </head>
 
 <body>
@@ -85,6 +89,7 @@
 
 
                 </div>
+            </div>
 
                 <div class="col s6">
                     <div class="row">
@@ -95,11 +100,82 @@
                     </div>
                     <div class="row">
                         <!--Client list goes here (remember to create sub row-->
+                      <div class="card">
+                          <div class="card-header">
+                              <span class="card-title">Last 10 Leads Added</span>
 
+                              <!--Button to trigger a modal for adding new customer-->
+                              <a class="waves-effect waves-light btn modal-trigger" id="lead-added" href="#modal1">Add Lead</a>
+                                <!--Modal Structure for adding new customer-->
+                                <div id="modal1" class="modal">
+                                    <div class="modal-content">
+                                        <h4>Add New Lead</h4>
+                                        <form class="col s12">
+                                            <div class="row">
+                                                <div class="input-field col6">
+                                                    <label for="first-name">First Name</label>
+                                                    <input id="first-name"  type="text" class="validate">
+                                                </div>
+                                                <div class="input-field col6">
+                                                    <label for="last-name">Last Name</label>
+                                                    <input id="last-name" type="text" class="validate">
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                    <div class="input-field col6">
+                                                        <label for="busines-name">Business Name</label>
+                                                        <input id="business-name"  type="text" class="validate">
+                                                    </div>
+                                                    <div class="input-field col6">
+                                                        <label for="business-address">Business address</label>
+                                                        <input id="business-address" type="text" class="validate">
+                                                    </div>
+                                            </div>
+                                            <div class="row">
+                                                    <div class="input-field col6">
+                                                        <label for="busines-phone">Business Phone</label>
+                                                        <input id="business-phone"  type="number" class="validate">
+                                                    </div>
+                                                    <div class="input-field col6">
+                                                        <label for="Mobile-phone">Mobile Phone</label>
+                                                        <input id="Mobile-phone" type="number" class="validate">
+                                                    </div>
+                                            </div>
+
+                                        </form>
+                                        <div class="modal-footer">
+                                                <a href="#!" class="modal-close waves-effect waves-green btn-flat">Add</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                          </div>
+                            <div class="card-content">
+                                <table class="stripped">
+                                    <thead>
+                                        <tr>
+                                            <th>Lead ID</th>
+                                            <th>Customer Name</th>
+                                            <th>Business Name</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>12345</td>
+                                            <td>Frank Pham</td>
+                                            <td>Beauty Salon</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                    </div>
                         <!---->
+
                     </div>
                 </div>
-            </div>
+            
         </div>
         <!-- Compiled and minified JavaScript -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
