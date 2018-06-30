@@ -102,6 +102,11 @@ button{
     border: 1px solid black;
 }
 
+#lead-added {
+    position: relative;
+    float: right;
+}
+
 #nextDay, #lastDay {
     margin: 12px;
 }
