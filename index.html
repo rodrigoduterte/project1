@@ -10,6 +10,7 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
     <link rel="stylesheet" href="./assets/css/style.css">
+    <srcipt src="assets/controls.js"></srcipt>
 
     <!--jQuery Link-->
     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
@@ -34,7 +35,7 @@
                         <div class="nav-wrapper">
                             <a href="#" class="brand-logo center" id="date">Today's Date</a>
                             <a class="waves-effect waves-light btn left" id="lastDay">
-                                < </a>
+                                </a>
                                     <a class="waves-effect waves-light btn right" id="nextDay"> > </a>
 
                                     </ul>
@@ -105,10 +106,10 @@
                               <span class="card-title">Last 10 Leads Added</span>
 
                               <!--Button to trigger a modal for adding new customer-->
-                              <a class="waves-effect waves-light btn modal-trigger" id="lead-added" href="#modal1">Add Lead</a>
+                              <button data-target="modal1" class="btn modal-trigger" id="lead-added" href="#modal1">Add Lead</button>
                                 <!--Modal Structure for adding new customer-->
                                 <div id="modal1" class="modal">
-                                    <div class="modal-content">
+                                    <div class="modal-content"> 
                                         <h4>Add New Lead</h4>
                                         <form class="col s12">
                                             <div class="row">
