@@ -7,12 +7,14 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Sale Reminder</title>
     <!-- Compiled and minified CSS -->
-
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
     <link rel="stylesheet" href="./assets/css/style.css">
+    <script src="./assets/js/controls.js"></script>
 
-    <!--jQuery Link-->
-    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 
 </head>
 
@@ -68,56 +70,71 @@
                             <a href="#">Follow Up</a>
                             <a href="#">Complete</a>
                         </div>
-                    </div>
-
-                    <div class="card blue-grey lighten-5">
-                        <div class="card-content black-text">
-                            <span class="card-title" id="custName">#003 Customer Name</span>
-                            <ul>
-                                <li>Action: Call Back</li>
-                                <li>Note: Customer was busy, call back today around 2:15pm.</li>
-                            </ul>
-
+    
+                        <div class="card blue-grey lighten-5">
+                            <div class="card-content black-text">
+                                <span class="card-title" id="custName">#002 Customer Name</span>
+                                <ul>
+                                    <li id="action">Action: Call Back</li>
+                                    <li id="note">Note: Customer was busy, call back today around 2:15pm.</li>
+                                </ul>
+    
+                            </div>
+                            <div class="card-action">
+                                <a href="#">Follow Up</a>
+                                <a href="#">Complete</a>
+                            </div>
                         </div>
-                        <div class="card-action">
-                            <a href="#">Follow Up</a>
-                            <a href="#">Complete</a>
+    
+                        <div class="card blue-grey lighten-5">
+                            <div class="card-content black-text">
+                                <span class="card-title" id="custName">#003 Customer Name</span>
+                                <ul>
+                                    <li>Action: Call Back</li>
+                                    <li>Note: Customer was busy, call back today around 2:15pm.</li>
+                                </ul>
+    
+                            </div>
+                            <div class="card-action">
+                                <a href="#">Follow Up</a>
+                                <a href="#">Complete</a>
+                            </div>
                         </div>
+    
+    
+    
                     </div>
-
-
-
                 </div>
-            </div>
+    
+                <div class="col s6">
+                    <div class="row">
+                        <!--Sales Pipeline goes here-->
 
-            <div class="col s6">
-                <div class="row">
-                    <!--Sales Pipeline goes here-->
 
+                        <!---->
+                    </div>
+                    <div class="row">
+                        <!--Client list goes here (remember to create sub row-->
+                      <div class="card">
+                          <div class="card-header">
+                              <span class="card-title">Last 10 Leads Added</span>
 
-                    <!---->
-                </div>
-                <div class="row">
-                    <!--Client list goes here (remember to create sub row-->
-                    <div class="card">
-                        <div class="card-header">
-                            <span class="card-title">Last 10 Leads Added</span>
-
-                            <!--Button to trigger a modal for adding new customer-->
-                            <a class="waves-effect waves-light btn modal-trigger" id="lead-added" href="#modal1">Add Lead</a>
-                            <!--Modal Structure for adding new customer-->
-                            <div id="modal1" class="modal">
-                                <div class="modal-content">
-                                    <h4>Add New Lead</h4>
-                                    <form class="col s12">
-                                        <div class="row">
-                                            <div class="input-field col6">
-                                                <label for="first-name">First Name</label>
-                                                <input id="first-name" type="text" class="validate">
-                                            </div>
-                                            <div class="input-field col6">
-                                                <label for="last-name">Last Name</label>
-                                                <input id="last-name" type="text" class="validate">
+                              <!--Button to trigger a modal for adding new customer-->
+                              <button data-target="modal1" class="btn modal-trigger" id="lead-added" href="#modal1">Add Lead</button>
+                                <!--Modal Structure for adding new customer-->
+                                <div id="modal1" class="modal">
+                                    <div class="modal-content"> 
+                                        <h4>Add New Lead</h4>
+                                        <form class="col s12">
+                                            <div class="row">
+                                                <div class="input-field col6">
+                                                    <label for="first-name">First Name</label>
+                                                    <input id="first-name"  type="text" class="validate">
+                                                </div>
+                                                <div class="input-field col6">
+                                                    <label for="last-name">Last Name</label>
+                                                    <input id="last-name" type="text" class="validate">
+                                                </div>
                                             </div>
                                         </div>
 
@@ -176,11 +193,7 @@
             </div>
 
         </div>
-        <!-- Compiled and minified JavaScript -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
-        <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
-        <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
-        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+
 </body>
 
 </html>
