@@ -1,4 +1,13 @@
 #calendar {
     height: 700px;
+    max-height: 700px;
+    overflow-y: scroll;
     border: 1px solid black;
 }
+
+#nextDay, #lastDay {
+    margin: 12px;
+}
+
+
+
