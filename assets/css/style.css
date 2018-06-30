@@ -1,17 +1,13 @@
-#lead-added{
-    background-color: white;
-    color: black;
-    font-size: 19px;
-    padding: 7px 14px;
-    border-radius: 5px;
-    border-bottom: 4px solid darkblue;
+#lead-added {
+    margin: 10px;
 }
 
 #calendar {
-    height: 700px;
-    max-height: 700px;
+    height: 600px;
+    max-height: 600px;
     overflow-y: scroll;
     border: 1px solid black;
+    margin-top: 0;
 }
 
 #lead-added {
@@ -21,6 +17,10 @@
 
 #nextDay, #lastDay {
     margin: 12px;
+}
+
+#calendarSec {
+    margin-top: 10px;
 }
 
 
