@@ -70,21 +70,8 @@
                             <a href="#">Follow Up</a>
                             <a href="#">Complete</a>
                         </div>
+                    </div>
     
-                        <div class="card blue-grey lighten-5">
-                            <div class="card-content black-text">
-                                <span class="card-title" id="custName">#002 Customer Name</span>
-                                <ul>
-                                    <li id="action">Action: Call Back</li>
-                                    <li id="note">Note: Customer was busy, call back today around 2:15pm.</li>
-                                </ul>
-    
-                            </div>
-                            <div class="card-action">
-                                <a href="#">Follow Up</a>
-                                <a href="#">Complete</a>
-                            </div>
-                        </div>
     
                         <div class="card blue-grey lighten-5">
                             <div class="card-content black-text">
@@ -115,59 +102,13 @@
                     </div>
                     <div class="row">
                         <!--Client list goes here (remember to create sub row-->
-                      <div class="card">
+                        <div class="card">
                           <div class="card-header">
-                              <span class="card-title">Last 10 Leads Added</span>
+                            <h3 class="card-title ten-lead">Last 10 Leads Added</h3>
 
-                              <!--Button to trigger a modal for adding new customer-->
-                              <button data-target="modal1" class="btn modal-trigger" id="lead-added" href="#modal1">Add Lead</button>
-                                <!--Modal Structure for adding new customer-->
-                                <div id="modal1" class="modal">
-                                    <div class="modal-content"> 
-                                        <h4>Add New Lead</h4>
-                                        <form class="col s12">
-                                            <div class="row">
-                                                <div class="input-field col6">
-                                                    <label for="first-name">First Name</label>
-                                                    <input id="first-name"  type="text" class="validate">
-                                                </div>
-                                                <div class="input-field col6">
-                                                    <label for="last-name">Last Name</label>
-                                                    <input id="last-name" type="text" class="validate">
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="row">
-                                            <div class="input-field col6">
-                                                <label for="busines-name">Business Name</label>
-                                                <input id="business-name" type="text" class="validate">
-                                            </div>
-                                            <div class="input-field col6">
-                                                <label for="business-address">Business address</label>
-                                                <input id="business-address" type="text" class="validate">
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="input-field col6">
-                                                <label for="busines-phone">Business Phone</label>
-                                                <input id="business-phone" type="number" class="validate">
-                                            </div>
-                                            <div class="input-field col6">
-                                                <label for="Mobile-phone">Mobile Phone</label>
-                                                <input id="Mobile-phone" type="number" class="validate">
-                                            </div>
-                                        </div>
-
-                                    </form>
-                                    <div class="modal-footer">
-                                        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Add</a>
-                                    </div>
-                                </div>
-                            </div>
-
-
-                        </div>
+                            <!--Button to trigger a modal for adding new customer-->
+                            <button data-target="modal1" class="btn modal-trigger" id="lead-added" href="#modal1">Add Lead</button>
+                          </div>
                         <div class="card-content">
                             <table class="stripped">
                                 <thead>
@@ -187,6 +128,132 @@
                             </table>
                         </div>
                     </div>
+
+                    <!--Start Modal 1 - adding new customer-->
+                    <div id="modal1" class="modal">
+                            <div class="modal-content"> 
+                                <h4> New Lead</h4>
+                                <div class="row">
+                                    <form class="col s12">
+
+                                        <div class="row">
+                                            <div class="input-field col s6">
+                                            <label for="first-name">First Name</label>
+                                            <input id="first-name"  type="text" class="validate">
+                                            </div>
+                                            <div class="input-field col s6">
+                                            <label for="last-name">Last Name</label>
+                                            <input id="last-name" type="text" class="validate">
+                                            </div>
+                                        </div>
+                                            
+                                        <div class="row">
+                                            <div class="input-field col s6">
+                                            <label for="busines-name">Business Name</label>
+                                            <input id="business-name" type="text" class="validate">
+                                            </div>
+                                            <div class="input-field col s6">
+                                            <label for="business-address">Address</label>
+                                            <input id="business-address" type="text" class="validate">
+                                            </div>
+                                        </div>
+                                                    
+                                        <div class="row">
+                                            <div class="input-field col s6">
+                                            <label for="busines-phone">Work Phone</label>
+                                            <input id="business-phone" type="number" class="validate">
+                                            </div>
+                                            <div class="input-field col s6">
+                                            <label for="Mobile-phone">Mobile Phone</label>
+                                            <input id="Mobile-phone" type="number" class="validate">
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="row">
+                                          <div class="input-field col s6">
+                                            <select>
+                                                    <option value="" disabled selected>Select Lead Status</option>
+                                                    <option value="1">Potential</option>
+                                                    <option value="2">Interested</option>
+                                                    <option value="3">Purchased</option>
+                                                    <option value="4">Dropped></option>
+                                            </select>
+                                          </div>
+                                        </div>
+
+
+                                        <div class="row">
+                                          <button class="waves-effect waves-light btn-small modal-trigger" id="new-lead-confirmed" data-target="modal2" href="#modal2">Add New Lead</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            </div>
+                    <!--End the modal adding new customer-->
+
+                    <!--Start modal 2 - adding new follow-up Card-->
+                    <div id="modal2" class="modal">
+                            <div class="modal-content"> 
+                                <h4>Follow-Up: Lead #<span id="followed-up-lead">1234</span></h4>
+                                <div class="row">
+                                    <div class="col s6">
+                                        <br>
+                                        <p>Customer: <span id="show-customer-name">phung pham</span></p><br>                                        
+                                        <p>Business: <span id="show-business-name">Beauty Salon</span></p><br>
+                                        <p>Work Phone: <span id="show-work-phone">(407) 123-4567</span></p><br>
+                                        <p>Mobile Phone: <span id="show-mobile-phone">(321) 123-4567</span></p><br>
+                                        <button class="btn disabled" id="follow-up-history">View Follow-up History</button>
+
+                                    </div>
+                                    <form class="col s6">
+
+                                        <div class="row">
+                                            <div class="input-field col s12">
+                                              <select>
+                                                  <option value="" disabled selected>Select Follow-Up Status</option>
+                                                  <option value="1">Customer is busy</option>
+                                                  <option value="2">Need time for final decision</option>
+                                                  <option value="3">Purchased</option>
+                                              </select>
+                                            </div>
+                                        </div>
+                                            
+                                        <div class="row">
+                                          <div class="input-field col s12">
+                                            <select>
+                                                <option value="" disabled selected>Select Next Action</option>
+                                                <option value="1">CAll Back</option>
+                                                <option value="2">Check Inventory</option>
+                                                <option value="3">Proceed Payment</option>
+                                            </select>
+                                          </div>
+                                        </div>
+                                                    
+                                        <div class="row">
+                                            <div class="input-field col s12">
+                                            <label>Select next follow-up date</label>
+                                            <input id="next-follow-up-date" type="text" class="datepicker">
+                                        </div>
+                                          
+                                        </div>
+                                        <div class="row">
+                                                <div class="input-field col s12">
+                                                <label for="Memo">Memo</label>
+                                                <input id="memo" type="text" class="validate">
+                                        </div>
+                                              
+                                        </div>
+
+                                        <div class="row">
+                                          <button class="waves-effect waves-light btn-small" id="follow-up-confirmed">Add New Follow-Up</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            </div>
+
+
+
                     <!---->
 
                 </div>

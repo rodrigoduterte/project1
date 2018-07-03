@@ -1,5 +1,5 @@
 #lead-added {
-    margin: 10px;
+    
 }
 
 #calendar {
@@ -13,6 +13,8 @@
 #lead-added {
     position: relative;
     float: right;
+    top: -35px;
+    right: 5px;
 }
 
 #nextDay, #lastDay {
@@ -22,6 +24,28 @@
 #calendarSec {
     margin-top: 10px;
 }
+
+.card-header {
+    height: 55px;
+    background-color: #38e0d0
+}
+
+.ten-lead {
+    position: relative;
+    top: 15px;
+    left: 15px;
+}
+.form {
+    width: 500px;
+    height: 600px;
+}
+#new-lead-confirmed, #follow-up-confirmed {
+    position: relative;
+    float: right;
+}
+
+
+
 
 
 
