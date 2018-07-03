@@ -1,12 +1,13 @@
 
 $(document).ready(function () {
-    // console.log('yesy')
-    //  //initialize all modals           
-    //  $('.modal').modal();   
+    ///initialize all modals           
+    $('.modal').modal();   
+    //initialize option selection within form
+    $('select').formSelect();
+    //initialize date picker
+    $('.datepicker').datepicker();
      
-    // //Open the modal adding new leads
-    // $("#modal1").modal('open');
-    // //
+
     console.log($(".modal").modal());
 });
 
