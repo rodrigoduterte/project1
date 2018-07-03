@@ -43,7 +43,7 @@
   },
   "followups": {
     "mockfollowup": {
-      "customer":"",
+      "customerid":"",
       "status": "\"\"",
       "action": "\"\"",
       "date": "\"\"",

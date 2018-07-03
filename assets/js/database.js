@@ -9,14 +9,18 @@ var config = {
 firebase.initializeApp(config);
 
 var database = firebase.database();
-var latestcounter;
-var counter = database.ref('counter/');
+var customerID = database.ref('counter/customer');
+var followupID = database.ref('counter/followup');
 var customers = database.ref('customers/');
+var followups = database.ref('followups/');
 
 
+/// we should not use 
 
 customers.on('child_added',function(s){
-  
+
+
+  ///insert customer on the Last 10 Leads View
 });
 
 
@@ -25,25 +29,26 @@ customers.on('child_added',function(s){
 // });
 // addCustomer();
 // 
-function addCustomer (customID) {
-  counter.transaction(function(counter){
+
+function addCustomer () {
+  //add custom counter to the customer 
+  customerID.transaction(function(counter){
     customers.child(counter + 1).set({
-      "firstname": $('#inputID1').val(),
-      "lastname": $('#inputID2').val(),
-      "businessname": $('#inputID3').val(),
-      "businessaddress": $('#inputID4').val(),
-      "businessphone": $('#inputID5').val(),
-      "mobilephone": $('#inputID6').val(),
+      "firstname": $('#first-name').val(),
+      "lastname": $('last-name').val(),
+      "businessname": $('#business-name').val(),
+      "businessaddress": $('#business-address').val(),
+      "businessphone": $('#business-phone').val(),
+      "mobilephone": $('#Mobile-phone').val(),
     });
     return counter + 1;
   });
   
 }
 
-
-function updateCounter () {
-  counter.transaction(function(counter){
-    window.latestcounter = counter + 1;
-    return counter + 1;
+function addFollowUp () {
+  followupID.transaction(function(counter){
+    followups.child()
   });
 }
+
