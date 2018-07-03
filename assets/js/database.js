@@ -30,6 +30,10 @@ customers.on('child_added',function(s){
 // addCustomer();
 // 
 
+function addObjectHistory () {
+  
+}
+
 function addCustomer () {
   //add custom counter to the customer 
   customerID.transaction(function(counter){
@@ -48,7 +52,7 @@ function addCustomer () {
 
 function addFollowUp () {
   followupID.transaction(function(counter){
-    followups.child()
+    followups.child(counter + 1).set({})
   });
 }
 
