@@ -1,6 +1,29 @@
 #lead-added {
+    margin-top: 45px;
+    margin-left: 60px;
+}
+
+#leadHead {
+    margin-left: 10px;
+}
+
+
+#lead-sales {
+    margin: 5px;
+}
+
+#leads {
+    margin-top: 0px;
+    height: 300px;
+    max-height: 300px;
+    overflow: scroll;
     
 }
+
+th {
+    padding-top: 0;
+}
+
 
 #calendar {
     height: 600px;
@@ -23,6 +46,7 @@
 
 #calendarSec {
     margin-top: 10px;
+    padding-left: 0;
 }
 
 .card-header {
