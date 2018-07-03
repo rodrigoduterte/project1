@@ -1,0 +1,53 @@
+{
+  "counter": 0,
+  "status-action": {
+    "Customer is Busy": "Call back",
+    "Call but no answer": "Call back",
+    "Need to discuss": [
+      "Follow-Up",
+      "Dropped => change lead status \"Dropped\""
+    ],
+    "Already purchased": [
+      "Follow-Up",
+      "Dropped => change lead status \"Dropped\""
+    ],
+    "No longer Need": [
+      "Follow-Up",
+      "Dropped => change lead status \"Dropped\""
+    ],
+    "Not purchase now": "Turn to \"Cold Lead\" => change to \"Potential\" lead",
+    "Follow up Sales Order": [
+      "Request shipping Date",
+      "Waiting to Ship",
+      "Check Inventory"
+    ],
+    "Shipped": "No Action needed",
+    "Order Completed": "No Action needed"
+  },
+  "leadstats": {
+    "potential": "0",
+    "interested": "0",
+    "purchased": "0",
+    "dropped": "0"
+  },
+  "customers": {
+    "mockcustomer": {
+      "id": "",
+      "firstname": "\"\"",
+      "lastname": "\"\"",
+      "businessname": "\"\"",
+      "businessaddress": "\"\"",
+      "businessphone": "\"\"",
+      "mobilephone": "\"\""
+    }
+  },
+  "followups": {
+    "mockfollowup": {
+      "customerid":"",
+      "status": "\"\"",
+      "action": "\"\"",
+      "date": "\"\"",
+      "note": "\"\""
+    }
+  }
+}
