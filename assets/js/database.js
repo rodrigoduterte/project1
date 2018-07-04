@@ -8,12 +8,21 @@ var config = {
   };
 firebase.initializeApp(config);
 
+var leadstatsInfo = {
+  "potential": "0",
+    "interested": "0",
+    "purchased": "0",
+    "dropped": "0"
+
+};
+
 var database = firebase.database();
 var customerID = database.ref('counter/customer');
 var followupID = database.ref('counter/followup');
 var customers = database.ref('customers/');
 var followups = database.ref('followups/');
-
+var statActs = database.ref('status-action/');
+var leadstats = database.ref('leadstats/');
 
 /// we should not use 
 
@@ -24,22 +33,28 @@ customers.on('child_added',function(s){
 });
 
 
+
 // $(#buttonID).on('click',function(){
 //     
 // });
 // addCustomer();
 // 
 
+function addObjectHistory () {
+  
+}
+
 function addCustomer () {
   //add custom counter to the customer 
   customerID.transaction(function(counter){
     customers.child(counter + 1).set({
       "firstname": $('#first-name').val(),
-      "lastname": $('last-name').val(),
+      "lastname": $('#last-name').val(),
       "businessname": $('#business-name').val(),
       "businessaddress": $('#business-address').val(),
-      "businessphone": $('#business-phone').val(),
+      "workphone": $('#work-phone').val(),
       "mobilephone": $('#Mobile-phone').val(),
+      "leadstatus": $('#sel1 option:selected').val()
     });
     return counter + 1;
   });
@@ -48,7 +63,17 @@ function addCustomer () {
 
 function addFollowUp () {
   followupID.transaction(function(counter){
-    followups.child()
+    followups.child(counter + 1).set({})
   });
 }
 
+function incrementLeadStatus(stat) {
+  leadstats.transaction
+}
+
+//create event listener for each lead status
+for () {
+  customers.orderByChild("leadstatus").equalTo("potential").on("child_added", function(snapshot) {
+    leadstatsArray[0] = snapshot.numOfChildren();
+  });
+}
