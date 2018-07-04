@@ -8,6 +8,10 @@ var config = {
   };
 firebase.initializeApp(config);
 
+var leadstatsInfo = {
+  
+};
+
 var database = firebase.database();
 var customerID = database.ref('counter/customer');
 var followupID = database.ref('counter/followup');
@@ -63,13 +67,9 @@ function incrementLeadStatus(stat) {
   leadstats.transaction
 }
 
-function getCountofLeadstats () {
-  //  0,potential
-  //  1,interested
-  //  2,purchased
-  //  3,dropped
-  var leadstatsArray = [];
+//create event listener for each lead status
+for () {
   customers.orderByChild("leadstatus").equalTo("potential").on("child_added", function(snapshot) {
-    console.log(snapshot.key());
+    leadstatsArray[0] = snapshot.numOfChildren();
   });
 }

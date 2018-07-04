@@ -28,6 +28,9 @@ $(document).ready(function () {
         $('#date').html(tomorrow);
     })
 
+    $('#new-lead-confirmed').on('click',function(){
+        addCustomer();
+    });
 });
 
 
