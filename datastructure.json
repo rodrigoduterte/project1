@@ -1,5 +1,8 @@
 {
-  "counter": 0,
+  "counter": {
+    "customer":0,
+    "followup":0
+  },
   "status-action": {
     "Customer is Busy": "Call back",
     "Call but no answer": "Call back",
@@ -37,8 +40,9 @@
       "lastname": "\"\"",
       "businessname": "\"\"",
       "businessaddress": "\"\"",
-      "businessphone": "\"\"",
-      "mobilephone": "\"\""
+      "workphone": "\"\"",
+      "mobilephone": "\"\"",
+      "leadstatus": "\"\""
     }
   },
   "followups": {
@@ -49,5 +53,6 @@
       "date": "\"\"",
       "note": "\"\""
     }
-  }
+  },
+  "history":{}
 }

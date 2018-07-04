@@ -68,6 +68,11 @@ th {
     float: right;
 }
 
+.pac-container { 
+    z-index: 100000; 
+
+}
+
 
 
 
