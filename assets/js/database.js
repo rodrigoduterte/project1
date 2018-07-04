@@ -9,7 +9,11 @@ var config = {
 firebase.initializeApp(config);
 
 var leadstatsInfo = {
-  
+  "potential": "0",
+    "interested": "0",
+    "purchased": "0",
+    "dropped": "0"
+
 };
 
 var database = firebase.database();
