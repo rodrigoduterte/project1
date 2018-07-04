@@ -164,188 +164,72 @@
         </div>
     </div>
 
+
     <!--Start Modal 1 - adding new customer-->
     <div id="modal1" class="modal">
         <div class="modal-content">
-            <h4> New Lead</h4>
+            <div class="row">
+                <div class="col s6">
+                    <h4> Add New Lead</h4>
+                </div>
+                <div class="cold s6">
+                    <div class="input-field col s6">
+                        <select id="lead-status">
+                            <option disabled selected>Select Lead Status</option>
+                            <option value="potential" id="potential">Potential</option>
+                            <option value="interested" id="interested">Interested</option>
+                            <option value="purchased" id="purchased">Purchased</option>
+                            <option value="dropped" id="dropped">Dropped</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
             <div class="row">
                 <form class="col s12">
 
                     <div class="row">
                         <div class="input-field col s6">
                             <label for="first-name">First Name</label>
-                            <input id="first-name" type="text" class="validate" placeholder="">
+                            <input id="first-name" type="text" class="validate">
                         </div>
                         <div class="input-field col s6">
                             <label for="last-name">Last Name</label>
-                            <input id="last-name" type="text" class="validate" placeholder="">
+                            <input id="last-name" type="text" class="validate">
                         </div>
                     </div>
 
                     <div class="row">
+                        <div class="input-field col s6">
+                            <label for="busines-name">Business Name</label>
+                            <input id="business-name" type="text" class="validate">
+                        </div>
+                        <div class="input-field col s6">
+                            <label for="business-address">Address</label>
+                            <input id="business-autocomplete" onFocus="geolocate()" type="text" class="validate" placeholder="">
 
-
-                        <!--Client list goes here (remember to create sub row-->
-                        <div class="card">
-                          <div class="card-header">
-                            <h3 class="card-title ten-lead">Last 10 Leads Added</h3>
-
-                            <!--Button to trigger a modal for adding new customer-->
-                            <button class="btn modal-trigger" id="lead-added" href="#modal1">Add Lead</button>
-                          </div>
-                        <div class="card-content">
-                            <table class="stripped">
-                                <thead>
-                                    <tr>
-                                        <th>Lead ID</th>
-                                        <th>Customer Name</th>
-                                        <th>Business Name</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="leads-list">
-                                    <tr>
-                                        <td>12345</td>
-                                        <td>Frank Pham</td>
-                                        <td>Beauty Salon</td>
-                                    </tr>
-                                </tbody>
-                            </table>
                         </div>
                     </div>
 
-                    <!--Start Modal 1 - adding new customer-->
-                    <div id="modal1" class="modal">
-                            <div class="modal-content"> 
-                            <div class="row">
-                                <div class="col s6">
-                                    <h4> Add New Lead</h4>
-                                </div>
-                                <div class="cold s6">
-                                    <div class="input-field col s6">
-                                      <select id="lead-status">
-                                              <option disabled selected>Select Lead Status</option>
-                                              <option value="potential" id="potential">Potential</option>
-                                              <option value="interested" id="interested">Interested</option>
-                                              <option value="purchased" id="purchased">Purchased</option>
-                                              <option value="dropped" id="dropped">Dropped</option>
-                                      </select>
-                                    </div>
-                                </div>
-                            </div>
-                                <div class="row">
-                                    <form class="col s12">
-
-                                        <div class="row">
-                                            <div class="input-field col s6">
-                                            <label for="first-name">First Name</label>
-                                            <input id="first-name"  type="text" class="validate">
-                                            </div>
-                                            <div class="input-field col s6">
-                                            <label for="last-name">Last Name</label>
-                                            <input id="last-name" type="text" class="validate">
-                                            </div>
-                                        </div>
-                                            
-                                        <div class="row">
-                                            <div class="input-field col s6">
-                                            <label for="busines-name">Business Name</label>
-                                            <input id="business-name" type="text" class="validate">
-                                            </div>
-                                            <div class="input-field col s6">
-                                            <label for="business-address">Address</label>
-                                            <input id="business-autocomplete" onFocus="geolocate()" type="text" class="validate" placeholder="">
-                                             
-                                            </div>
-                                        </div>
-                                                    
-                                        <div class="row">
-                                            <div class="input-field col s6">
-                                            <label for="work-phone">Work Phone</label>
-                                            <input id="work-phone" type="number" class="validate">
-                                            </div>
-                                            <div class="input-field col s6">
-                                            <label for="mobile-phone">Mobile Phone</label>
-                                            <input id="mobile-phone" type="number" class="validate">
-                                            </div>
-                                        </div>
-
-                                        <div class="row">
-                                          <button class="waves-effect waves-light btn-small modal-trigger" id="new-lead-confirmed" href="#modal2">Add New Lead</button>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                            </div>
-                    <!--End the modal adding new customer-->
-
-                    <!--Start modal 2 - adding new follow-up Card-->
-                    <div id="modal2" class="modal">
-                            <div class="modal-content"> 
-                                <h4>Follow-Up: Lead #<span id="show-lead-id">1234</span></h4>
-                                <div class="row">
-                                    <div class="col s6">
-                                        <br>
-                                        <p>Customer: <span class="lead-info" id="show-customer-name">phung pham</span></p><br>                                        
-                                        <p>Business: <span class="lead-info" id="show-business-name">Beauty Salon</span></p><br>
-                                        <p>Work Phone: <span class="lead-info" id="show-work-phone">(407) 123-4567</span></p><br>
-                                        <p>Mobile Phone: <span class="lead-info" id="show-mobile-phone">(321) 123-4567</span></p><br>
-                                        <button id="follow-up-history">View Follow-up History</button>
-
-                                    </div>
-                                    <form class="col s6">
-
-                                        <div class="row">
-                                            <div class="input-field col s12">
-                                              <select class="follow-up-status">
-                                                  <option value="" disabled selected>Select Follow-Up Status</option>
-                                                  <option>Customer is busy</option>
-
-                                              </select>
-                                            </div>
-                                        </div>
-                                            
-                                        <div class="row">
-                                          <div class="input-field col s12">
-                                            <select id="next-action">
-                                                <option disabled selected>Select Next Action</option>
-                                                <option>Call Back</option>
-                                            </select>
-                                          </div>
-                                        </div>
-                                                    
-                                        <div class="row">
-                                            <div class="input-field col s12">
-                                            <label>Select next follow-up date</label>
-                                            <input id="next-follow-up-date" type="text" class="datepicker">
-                                        </div>
-                                          
-                                        </div>
-                                        <div class="row">
-                                                <div class="input-field col s12">
-                                                <label for="Memo">Memo</label>
-                                                <input id="memo" type="text" class="validate">
-                                        </div>
-                                              
-                                        </div>
-
-                                        <div class="row">
-                                          <button class="waves-effect waves-light btn-small" id="follow-up-confirmed">Add New Follow-Up</button>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                            </div>
-
-
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <label for="work-phone">Work Phone</label>
+                            <input id="work-phone" type="number" class="validate">
+                        </div>
+                        <div class="input-field col s6">
+                            <label for="mobile-phone">Mobile Phone</label>
+                            <input id="mobile-phone" type="number" class="validate">
+                        </div>
+                    </div>
 
                     <div class="row">
-                        <button class="waves-effect waves-light btn-small modal-trigger" id="new-lead-confirmed" data-target="modal2" href="#modal2">Add New Lead</button>
+                        <button class="waves-effect waves-light btn-small modal-trigger" id="new-lead-confirmed" href="#modal2">Add New Lead</button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
     <!--End the modal adding new customer-->
+
 
     <!--Start modal 2 - adding new follow-up Card-->
     <div id="modal2" class="modal">
