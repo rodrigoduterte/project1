@@ -8,12 +8,11 @@ var config = {
   };
 firebase.initializeApp(config);
 
-var leadstatsInfo = {
+var leadstatsKeys = {
   "potential": "0",
-    "interested": "0",
-    "purchased": "0",
-    "dropped": "0"
-
+  "interested": "0",
+  "purchased": "0",
+  "dropped": "0"
 };
 
 var database = firebase.database();
@@ -24,56 +23,104 @@ var followups = database.ref('followups/');
 var statActs = database.ref('status-action/');
 var leadstats = database.ref('leadstats/');
 
-/// we should not use 
+var customerIDForFollowups = 0;
+var statusList = [];
 
-customers.on('child_added',function(s){
-
-
-  ///insert customer on the Last 10 Leads View
-});
-
-
-
-// $(#buttonID).on('click',function(){
-//     
-// });
-// addCustomer();
-// 
-
-function addObjectHistory () {
-  
-}
-
-function addCustomer () {
-  //add custom counter to the customer 
-  customerID.transaction(function(counter){
-    customers.child(counter + 1).set({
-      "firstname": $('#first-name').val(),
-      "lastname": $('#last-name').val(),
-      "businessname": $('#business-name').val(),
-      "businessaddress": $('#business-address').val(),
-      "workphone": $('#work-phone').val(),
-      "mobilephone": $('#Mobile-phone').val(),
-      "leadstatus": $('#sel1 option:selected').val()
-    });
-    return counter + 1;
+///////////////////// add event listeners for database references
+////////// once
+statActs.once("value", function(snapshot) {
+  //// get list of actions once
+  snapshot.forEach(e => {
+	  statusList.push(e.key);
   });
-  
+});
+////////// once
+////////// on
+
+
+
+
+////////// on
+
+///////////////////// add event listeners for database references
+///////////////////// functions that add records to the database
+function addCustomer () {
+  customerID.transaction(function(customer){
+    //customerID.transaction executes the callback function twice
+    //@ first call customer === null
+    //@ second call customer === counter/customer.val() 
+    if (customer === null) {
+      return customer + 1;
+    } else {
+      return customer + 1;
+    }
+  }, function(error, committed, snapshot) {
+    customerIDForFollowups = snapshot.val();
+    if (error) {
+      console.log('Customer ID unchanged!', error);
+    } else if (committed) {
+      console.log('Incremented Customer ID.');
+      customers.child(customerIDForFollowups).set({
+        firstname: $('#first-name').val(),
+        lastname: $('#last-name').val(),
+        businessname: $('#business-name').val(),
+        businessaddress: $('#business-autocomplete').val(),
+        workphone: $('#work-phone').val(),
+        mobilephone: $('#mobile-phone').val(),
+        leadstatus: $('#lead-status option:selected').val()
+      });
+    }
+  });
 }
 
 function addFollowUp () {
-  followupID.transaction(function(counter){
-    followups.child(counter + 1).set({})
+  followupID.transaction(function(followup){
+    //followupID.transaction executes the callback function twice
+    //@ first call followup === null
+    //@ second call followup === counter/followup.val() 
+    if (followup === null) {
+      return followup + 1;
+    } else {
+      return followup + 1;
+    }
+  }, function(error, committed, snapshot) {
+    if (error) {
+      console.log('Followup ID unchanged!', error);
+    } else if (committed) {
+      console.log('Incremented Followup ID.');
+      followups.child(snapshot.val()).set({
+        customerid: customerIDForFollowups,
+        status: "not yet there",
+        action: "not yet there",
+        date: $('#next-follow-up-date').val(),
+        note: $('#memo').val()
+      });
+    }
   });
 }
-
-function incrementLeadStatus(stat) {
-  leadstats.transaction
+function addObjectHistory () {
+  
+}
+///////////////////// functions that add records to the database
+///////////////////// functions that get records from the database
+function getStatus () {
+  // statActs.
 }
 
+
+
+
+
+
+
+
+///////////////////// functions that get records from the database
+
 //create event listener for each lead status
-for () {
-  customers.orderByChild("leadstatus").equalTo("potential").on("child_added", function(snapshot) {
-    leadstatsArray[0] = snapshot.numOfChildren();
+for (var k in leadstatsKeys) {
+  customers.orderByChild("leadstatus").equalTo(k).on("child_added", function(snapshot) {
+    if( leadstatsKeys.hasOwnProperty(k) ) {
+      leadstatsKeys[k] = snapshot.numChildren();
+    }
   });
 }
