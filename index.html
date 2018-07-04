@@ -132,7 +132,22 @@
                     <!--Start Modal 1 - adding new customer-->
                     <div id="modal1" class="modal">
                             <div class="modal-content"> 
-                                <h4> New Lead</h4>
+                            <div class="row">
+                                <div class="col s6">
+                                    <h4> Add New Lead</h4>
+                                </div>
+                                <div class="cold s6">
+                                    <div class="input-field col s6">
+                                      <select id="lead-status">
+                                              <option disabled selected>Select Lead Status</option>
+                                              <option value="potential" id="potential">Potential</option>
+                                              <option value="interested" id="interested">Interested</option>
+                                              <option value="purchased" id="purchased">Purchased</option>
+                                              <option value="dropped" id="dropped">Dropped</option>
+                                      </select>
+                                    </div>
+                                </div>
+                            </div>
                                 <div class="row">
                                     <form class="col s12">
 
@@ -168,16 +183,6 @@
                                             <input id="mobile-phone" type="number" class="validate">
                                             </div>
                                         </div>
-                                        
-                                        <div class="row">
-                                          <div class="input-field col s6">
-                                            <select id="lead-status">
-                                                    <option disabled selected>Select Lead Status</option>
-                                                    <option>Potential</option>
-                                            </select>
-                                          </div>
-                                        </div>
-
 
                                         <div class="row">
                                           <button class="waves-effect waves-light btn-small modal-trigger" id="new-lead-confirmed" href="#modal2">Add New Lead</button>
@@ -218,7 +223,7 @@
                                           <div class="input-field col s12">
                                             <select id="next-action">
                                                 <option disabled selected>Select Next Action</option>
-                                                <option>CAll Back</option>
+                                                <option>Call Back</option>
                                             </select>
                                           </div>
                                         </div>
