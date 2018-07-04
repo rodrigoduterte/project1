@@ -13,7 +13,8 @@ var customerID = database.ref('counter/customer');
 var followupID = database.ref('counter/followup');
 var customers = database.ref('customers/');
 var followups = database.ref('followups/');
-
+var statActs = database.ref('status-action/');
+var leadstats = database.ref('leadstats/');
 
 /// we should not use 
 
@@ -22,6 +23,7 @@ customers.on('child_added',function(s){
 
   ///insert customer on the Last 10 Leads View
 });
+
 
 
 // $(#buttonID).on('click',function(){
@@ -39,11 +41,12 @@ function addCustomer () {
   customerID.transaction(function(counter){
     customers.child(counter + 1).set({
       "firstname": $('#first-name').val(),
-      "lastname": $('last-name').val(),
+      "lastname": $('#last-name').val(),
       "businessname": $('#business-name').val(),
       "businessaddress": $('#business-address').val(),
-      "businessphone": $('#business-phone').val(),
+      "workphone": $('#work-phone').val(),
       "mobilephone": $('#Mobile-phone').val(),
+      "leadstatus": $('#sel1 option:selected').val()
     });
     return counter + 1;
   });
@@ -56,3 +59,17 @@ function addFollowUp () {
   });
 }
 
+function incrementLeadStatus(stat) {
+  leadstats.transaction
+}
+
+function getCountofLeadstats () {
+  //  0,potential
+  //  1,interested
+  //  2,purchased
+  //  3,dropped
+  var leadstatsArray = [];
+  customers.orderByChild("leadstatus").equalTo("potential").on("child_added", function(snapshot) {
+    console.log(snapshot.key());
+  });
+}

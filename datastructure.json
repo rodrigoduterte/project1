@@ -40,8 +40,9 @@
       "lastname": "\"\"",
       "businessname": "\"\"",
       "businessaddress": "\"\"",
-      "businessphone": "\"\"",
-      "mobilephone": "\"\""
+      "workphone": "\"\"",
+      "mobilephone": "\"\"",
+      "leadstatus": "\"\""
     }
   },
   "followups": {
