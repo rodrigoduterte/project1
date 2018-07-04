@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Sale Reminder</title>
-    <!-- Compiled and minified CSS -->
+    <!-- Compiled andminified CSS -->
+    <script src="./assets/js/api.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
@@ -14,6 +15,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
     <link rel="stylesheet" href="./assets/css/style.css">
     <script src="./assets/js/controls.js"></script>
+
 
 
 </head>
@@ -156,7 +158,7 @@
                         </div>
 
                     </div>
-              </div>
+                </div>
             </div>
 
         </div>
@@ -172,33 +174,33 @@
                     <div class="row">
                         <div class="input-field col s6">
                             <label for="first-name">First Name</label>
-                            <input id="first-name" type="text" class="validate">
+                            <input id="first-name" type="text" class="validate" placeholder="">
                         </div>
                         <div class="input-field col s6">
                             <label for="last-name">Last Name</label>
-                            <input id="last-name" type="text" class="validate">
+                            <input id="last-name" type="text" class="validate" placeholder="">
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="input-field col s6">
                             <label for="busines-name">Business Name</label>
-                            <input id="business-name" type="text" class="validate">
+                            <input id="business-name" type="text" class="validate" placeholder="">
                         </div>
                         <div class="input-field col s6">
                             <label for="business-address">Address</label>
-                            <input id="business-address" type="text" class="validate">
+                            <input id="business-autocomplete" onFocus="geolocate()" type="text" class="validate" placeholder="">
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="input-field col s6">
                             <label for="busines-phone">Work Phone</label>
-                            <input id="business-phone" type="number" class="validate">
+                            <input id="business-phone" type="number" class="validate" placeholder="">
                         </div>
                         <div class="input-field col s6">
                             <label for="Mobile-phone">Mobile Phone</label>
-                            <input id="Mobile-phone" type="number" class="validate">
+                            <input id="Mobile-phone" type="number" class="validate" placeholder="">
                         </div>
                     </div>
 
@@ -302,7 +304,76 @@
 
 
     <!---->
+    <script>
+        // This example displays an address form, using the autocomplete feature
+        // of the Google Places API to help users fill in the information.
 
+        // This example requires the Places library. Include the libraries=places
+        // parameter when you first load the API. For example:
+        // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
+
+        var placeSearch, autocomplete;
+        var componentForm = {
+            street_number: 'short_name',
+            route: 'long_name',
+            locality: 'long_name',
+            administrative_area_level_1: 'short_name',
+            country: 'long_name',
+            postal_code: 'short_name'
+        };
+
+        function initAutocomplete() {
+            // Create the autocomplete object, restricting the search to geographical
+            // location types.
+            autocomplete = new google.maps.places.Autocomplete(
+                  /** @type {!HTMLInputElement} */(document.getElementById('business-autocomplete')),
+                { types: ['geocode'] });
+
+            // When the user selects an address from the dropdown, populate the address
+            // fields in the form.
+            autocomplete.addListener('place_changed', fillInAddress);
+        }
+
+        function fillInAddress() {
+            // Get the place details from the autocomplete object.
+            var place = autocomplete.getPlace();
+
+            for (var component in componentForm) {
+                document.getElementById(component).value = '';
+                document.getElementById(component).disabled = false;
+            }
+
+            // Get each component of the address from the place details
+            // and fill the corresponding field on the form.
+            for (var i = 0; i < place.address_components.length; i++) {
+                var addressType = place.address_components[i].types[0];
+                if (componentForm[addressType]) {
+                    var val = place.address_components[i][componentForm[addressType]];
+                    document.getElementById(addressType).value = val;
+                }
+            }
+        }
+
+        // Bias the autocomplete object to the user's geographical location,
+        // as supplied by the browser's 'navigator.geolocation' object.
+        function geolocate() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function (position) {
+                    var geolocation = {
+                        lat: position.coords.latitude,
+                        lng: position.coords.longitude
+                    };
+                    var circle = new google.maps.Circle({
+                        center: geolocation,
+                        radius: position.coords.accuracy
+                    });
+                    autocomplete.setBounds(circle.getBounds());
+                });
+            }
+        }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCMehvoOLcod3Fi1YS6c-inhIu1fZXVAy0&libraries=places&callback=initAutocomplete"
+        async defer></script>
 
 </body>
 
