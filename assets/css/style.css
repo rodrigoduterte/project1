@@ -36,7 +36,7 @@ th {
 #lead-added {
     position: relative;
     float: right;
-    top: -35px;
+    top: -30px;
     right: 5px;
 }
 
@@ -68,15 +68,25 @@ th {
     width: 500px;
     height: 600px;
 }
-#new-lead-confirmed, #follow-up-confirmed {
+.btn-small {
     position: relative;
     float: right;
+    margin-left: 5px;
+}
+#follow-up-history {
+    position: relative;
+    float: left;
 }
 
 .pac-container { 
     z-index: 100000; 
 
 }
+
+.confirmed {
+    width: 35%;
+}
+
 
 
 
