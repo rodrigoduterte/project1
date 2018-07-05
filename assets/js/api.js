@@ -14,12 +14,12 @@ var hostnameRegexp = new RegExp('^https?://.+?/');
 
 // Create the autocomplete object and associate it with the UI input control.
 // Restrict the search to the default country, and to place type "cities".
-autocomplete = new google.maps.places.Autocomplete(
-/** @type {!HTMLInputElement} */ (
-    document.getElementById('autocomplete')), {
-    types: ['(cities)'],
-    componentRestrictions: countryRestrict
-});
-places = new google.maps.places.PlacesService(map);
+//autocomplete = new google.maps.places.Autocomplete(
+ //@type {!HTMLInputElement} */ (
+    //document.getElementById('autocomplete')), {
+    //types: ['(cities)'],
+    //componentRestrictions: countryRestrict
+//});
+//places = new google.maps.places.PlacesService(map);
 
-autocomplete.addListener('place_changed', onPlaceChanged);
+//autocomplete.addListener('place_changed', onPlaceChanged);
