@@ -78,6 +78,23 @@ th {
 
 }
 
+.btn-small {
+    position: relative;
+    float: right;
+    margin-left: 5px;
+}
+
+.confirmed {
+    width: 35%;
+}
+
+#follow-up-history {
+    position: relative;
+    float: left;
+}
+
+
+
 
 
 
