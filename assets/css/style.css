@@ -40,8 +40,13 @@ th {
     right: 5px;
 }
 
-#nextDay, #lastDay {
+#nextDay {
     margin: 12px;
+}
+
+#today {
+    margin: 12px;
+    display: none;
 }
 
 #calendarSec {
