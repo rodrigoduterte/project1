@@ -61,13 +61,13 @@ function addCustomer () {
     } else if (committed) {
       console.log('Incremented Customer ID.');
       customers.child(customerIDForFollowups).set({
-        firstname: $('#first-name').val(),
-        lastname: $('#last-name').val(),
-        businessname: $('#business-name').val(),
-        businessaddress: $('#business-autocomplete').val(),
-        workphone: $('#work-phone').val(),
-        mobilephone: $('#mobile-phone').val(),
-        leadstatus: $('#lead-status option:selected').val()
+        firstname: formvariables.customer.firstname,
+        lastname: formvariables.customer.lastname,
+        businessname: formvariables.customer.businessname,
+        businessaddress: formvariables.customer.businessaddress,
+        workphone: formvariables.customer.workphone,
+        mobilephone: formvariables.customer.mobilephone,
+        leadstatus: formvariables.customer.leadstatus
       });
     }
   });
@@ -103,6 +103,9 @@ function addObjectHistory () {
 }
 ///////////////////// functions that add records to the database
 ///////////////////// functions that get records from the database
+function getCustomerFields(id,objGetter) {
+
+}
 function getStatus () {
   // statActs.
 }
