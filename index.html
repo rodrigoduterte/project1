@@ -9,14 +9,12 @@
     <!-- Compiled andminified CSS -->
     <script src="./assets/js/api.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    
+    <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
     <link rel="stylesheet" href="./assets/css/style.css">
-    <script src="./assets/js/controls.js"></script>
-
-
 
 </head>
 
@@ -185,27 +183,27 @@
                 </div>
             </div>
             <div class="row">
-                <form class="col s12">
+                <form id="form-customer" class="col s12" data-parsley-validate="">
 
                     <div class="row">
                         <div class="input-field col s6">
                             <label for="first-name">First Name</label>
-                            <input id="first-name" type="text" class="validate">
+                            <input id="first-name" type="text" class="validate" required="">
                         </div>
                         <div class="input-field col s6">
                             <label for="last-name">Last Name</label>
-                            <input id="last-name" type="text" class="validate">
+                            <input id="last-name" type="text" class="validate" required="">
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="input-field col s6">
                             <label for="busines-name">Business Name</label>
-                            <input id="business-name" type="text" class="validate">
+                            <input id="business-name" type="text" class="validate" required="">
                         </div>
                         <div class="input-field col s6">
                             <label for="business-address">Address</label>
-                            <input id="business-autocomplete" onFocus="geolocate()" type="text" class="validate" placeholder="">
+                            <input id="business-autocomplete" onFocus="geolocate()" type="text" class="validate" placeholder="" required="">
 
                         </div>
                     </div>
@@ -213,16 +211,17 @@
                     <div class="row">
                         <div class="input-field col s6">
                             <label for="work-phone">Work Phone</label>
-                            <input id="work-phone" type="number" class="validate">
+                            <input id="work-phone" data-parsley-type='digits' class="validate" required="" data-parsley-pattern="^\(?([0-9]{3})\)?[-.●]?([0-9]{3})[-.●]?([0-9]{4})$">
                         </div>
                         <div class="input-field col s6">
                             <label for="mobile-phone">Mobile Phone</label>
-                            <input id="mobile-phone" type="number" class="validate">
+                            <input id="mobile-phone" data-parsley-type='digits' class="validate" required="" data-parsley-pattern="^\(?([0-9]{3})\)?[-.●]?([0-9]{3})[-.●]?([0-9]{4})$">
                         </div>
                     </div>
 
                     <div class="row">
-                        <button class="waves-effect waves-light btn-small modal-trigger" id="new-lead-confirmed" href="#modal2">Add New Lead</button>
+                        <!-- <button class="waves-effect waves-light btn-small modal-trigger" id="new-lead-confirmed" href="#modal2">Add New Lead</button> -->
+                        <input type="submit" class="waves-effect waves-light btn-small modal-trigger" value="validate">
                     </div>
                 </form>
             </div>
@@ -259,21 +258,32 @@
                     <button class="btn disabled" id="follow-up-history">View Follow-up History</button>
 
                 </div>
-                <form class="col s6">
-
+                <form id="form-followup" class="col s6">
                     <div class="row">
                         <div class="input-field col s12">
-                            <select>
+                            <select id="lead-status">
                                 <option value="" disabled selected>Select Follow-Up Status</option>
-                                <option value="1">Customer is busy</option>
+                                <!-- <!-- <option value="1">Customer is busy</option> -->
                                 <option value="2">Need time for final decision</option>
-                                <option value="3">Purchased</option>
+                                <option value="3">Purchased</option> -->
                             </select>
                         </div>
                     </div>
 
                     <div class="row">
-                        <div class="input-field col s12">
+                        <!-- Dropdown Trigger -->
+                        <a class='dropdown-trigger btn' href='#' data-target='statdrop'>Status</a>
+
+                        <!-- Dropdown Structure -->
+                        <ul id='statdrop' class='dropdown-content'>
+                            <li><a href="#!">one</a></li>
+                            <li><a href="#!">two</a></li>
+                            <li><a href="#!">three</a></li>
+                        </ul>
+                    </div>                    
+
+                    <div class="row">
+                        <div class="input-field col s12" id="followup-action">
                             <select>
                                 <option value="" disabled selected>Select Next Action</option>
                                 <option value="1">Call Back</option>
@@ -343,10 +353,10 @@
             // Get the place details from the autocomplete object.
             var place = autocomplete.getPlace();
 
-            for (var component in componentForm) {
-                document.getElementById(component).value = '';
-                document.getElementById(component).disabled = false;
-            }
+            // for (var component in componentForm) {
+            //     document.getElementById(component).value = '';
+            //     document.getElementById(component).disabled = false;
+            // }
 
             // Get each component of the address from the place details
             // and fill the corresponding field on the form.
@@ -354,7 +364,7 @@
                 var addressType = place.address_components[i].types[0];
                 if (componentForm[addressType]) {
                     var val = place.address_components[i][componentForm[addressType]];
-                    document.getElementById(addressType).value = val;
+                    // document.getElementById(addressType).value = val;
                 }
             }
         }
@@ -377,8 +387,18 @@
             }
         }
     </script>
+    <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script> -->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCMehvoOLcod3Fi1YS6c-inhIu1fZXVAy0&libraries=places&callback=initAutocomplete"
         async defer></script>
+    <script src="./assets/js/parsley.min.js"></script>
+
+    <script src="./assets/js/database.js"></script>
+    <script src="./assets/js/controls.js"></script>
+    <script src="./assets/js/validator.js"></script>
+    
 
 </body>
 
