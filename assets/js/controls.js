@@ -15,6 +15,8 @@ statusList.forEach(e => {
     $('#lead-status').append('<option>abc</option>');
     // $("#lead-status").trigger('contentChanged');
 });
+var nextCounter = 0;
+var lastCounter = 0;
 
 
 $(document).ready(function () {
@@ -45,17 +47,20 @@ $(document).ready(function () {
     $('#date').html(currentDate);
     console.log(currentDate);
 
-    $('#lastDay').on('click', function (event) {
-        event.preventDefault();
+    $('#nextDay').on('click', function(){
+        nextCounter++;
 
-        yesterday = moment().subtract(1, 'day').format('MM-DD-YYYY');
-        $('#date').html(yesterday);
-        console.log(yesterday);
+        newDate = moment().add(nextCounter, 'day').format('MM-DD-YYYY');
+        $('#date').html(newDate);
+        console.log(newDate);
+
+        $('#today').show();
     })
 
-    $('#nextDay').on('click', function(){
-        tomorrow = moment().add(1, 'day').format('MM-DD-YYYY');
-        $('#date').html(tomorrow);
+    $('#today').on('click', function(){
+        $('#date').html(currentDate);
+        nextCounter = 0;
+        $('#today').hide();
     })
 
     $('#new-lead-confirmed').on('click',function(){
