@@ -9,8 +9,9 @@
     <!-- Compiled andminified CSS -->
     <script src="./assets/js/api.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-    
+
     <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
@@ -40,124 +41,173 @@
             </div>
         </nav>
         <div class="row">
-           <!--Calendar-->
-           <div class="col s6" id="calendarSec">
-            <nav>
-                <div class="nav-wrapper deep-orange darken 1">
-                    <a href="#" class="brand-logo center" id="date">6-30-2018</a>
-                    <a class="waves-effect waves-light btn left" id="today">
-                        reset </a>
-                            <a class="waves-effect waves-light btn right" id="nextDay"> Next </a>
+            <!--Calendar-->
+            <div class="col s6" id="calendarSec">
+                <nav>
+                    <div class="nav-wrapper deep-orange darken 1">
+                        <a href="#" class="brand-logo center" id="date">6-30-2018</a>
+                        <a class="btn left" id="today">
+                            Today </a>
+                        <a class="btn right" id="nextDay"> Next </a>
 
+                        </ul>
+                    </div>
+                </nav>
+                <div class="section" id="calendar">
+                    <div class="card blue-grey darken-1">
+                        <div class="card-content blue-grey lighten-5">
+                            <h5 class="card-title" id="custName">#001 Customer Name</h5>
+                            <ul>
+                                <li>Action: Call Back</li>
+                                <li>Note: Customer was busy, call back today around 2:15pm.</li>
                             </ul>
-                </div>
-            </nav>
-            <div class="card blue-grey darken-1">
-                <div class="card-content blue-grey lighten-5">
-                    <h5 class="card-title" id="custName">#001 Customer Name</h5>
-                    <ul>
-                        <li>Action: Call Back</li>
-                        <li>Note: Customer was busy, call back today around 2:15pm.</li>
-                    </ul>
-                    <div class="card-action">
-                        <button class="btn-small">Follow Up</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card blue-grey darken-1">
-                <div class="card-content blue-grey lighten-5">
-                    <h5 class="card-title" id="custName">#001 Customer Name</h5>
-                    <ul>
-                        <li>Action: Call Back</li>
-                        <li>Note: Customer was busy, call back today around 2:15pm.</li>
-                    </ul>
-                    <div class="card-action">
-                        <button class="btn-small">Follow Up</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card blue-grey darken-1">
-                <div class="card-content blue-grey lighten-5">
-                    <h5 class="card-title" id="custName">#001 Customer Name</h5>
-                    <ul>
-                        <li>Action: Call Back</li>
-                        <li>Note: Customer was busy, call back today around 2:15pm.</li>
-                    </ul>
-                    <div class="card-action">
-                        <button class="btn-small">Follow Up</button>
-                    </div>
-                </div>
-            </div>
-
-            
-
-        </div>
-
-        <div class="col s6">
-
-            <div class="row" id="lead-sales">
-                    <!--Sales Pipeline goes here-->
-
-
-                    <!---->
-                </div>
-                <div class="row">
-                    <!--Client list goes here (remember to create sub row-->
-                        <nav>
-                            <div class="nav-wrapper deep-orange darken 1">
-                                <a href="#" class="brand-logo" id="leadHead">Last 10 Leads Added</a>
-
-                                <button data-target="modal1" class="btn modal-trigger" id="lead-added" href="#modal1">Add Lead</button>
-
-                            </div>
-                        </nav>
-                        <div class="card blue-grey lighten-5" id="leadTable">
-                            <div class="card-content">
-                                <table class="stripped" id="leadTable">
-                                    <thead>
-                                        <tr>
-                                            <th>Lead ID</th>
-                                            <th>Customer Name</th>
-                                            <th>Business Name</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>12345</td>
-                                            <td>Frank Pham</td>
-                                            <td>Beauty Salon</td>
-                                        </tr>
-                                        <tr>
-                                            <td>12345</td>
-                                            <td>Frank Pham</td>
-                                            <td>Beauty Salon</td>
-                                        </tr>
-                                        <tr>
-                                            <td>12345</td>
-                                            <td>Frank Pham</td>
-                                            <td>Beauty Salon</td>
-                                        </tr>
-                                        <tr>
-                                            <td>12345</td>
-                                            <td>Frank Pham</td>
-                                            <td>Beauty Salon</td>
-                                        </tr>
-                                        <tr>
-                                            <td>12345</td>
-                                            <td>Frank Pham</td>
-                                            <td>Beauty Salon</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                            <div class="card-action">
+                                <button data-target="modal2" class="btn-small modal-trigger" id="lead-addded" href="#modal2">Follow Up</button>
                             </div>
                         </div>
+                    </div>
+
+
+                    <div class="card blue-grey darken-1">
+                        <div class="card-content blue-grey lighten-5">
+                            <h5 class="card-title" id="custName">#001 Customer Name</h5>
+                            <ul>
+                                <li>Action: Call Back</li>
+                                <li>Note: Customer was busy, call back today around 2:15pm.</li>
+                            </ul>
+                            <div class="card-action">
+                                <button class="btn-small">Follow Up</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card blue-grey darken-1">
+                        <div class="card-content blue-grey lighten-5">
+                            <h5 class="card-title" id="custName">#001 Customer Name</h5>
+                            <ul>
+                                <li>Action: Call Back</li>
+                                <li>Note: Customer was busy, call back today around 2:15pm.</li>
+                            </ul>
+                            <div class="card-action">
+                                <button class="btn-small">Follow Up</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card blue-grey darken-1">
+                        <div class="card-content blue-grey lighten-5">
+                            <h5 class="card-title" id="custName">#001 Customer Name</h5>
+                            <ul>
+                                <li>Action: Call Back</li>
+                                <li>Note: Customer was busy, call back today around 2:15pm.</li>
+                            </ul>
+                            <div class="card-action">
+                                <button class="btn-small">Follow Up</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card blue-grey darken-1">
+                        <div class="card-content blue-grey lighten-5">
+                            <h5 class="card-title" id="custName">#001 Customer Name</h5>
+                            <ul>
+                                <li>Action: Call Back</li>
+                                <li>Note: Customer was busy, call back today around 2:15pm.</li>
+                            </ul>
+                            <div class="card-action">
+                                <button class="btn-small">Follow Up</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+
+            <div class="col s6" id="stats">
+                <div class="section" id="clientChartTitle">
+                    <nav>
+                        <div class="nav-wrapper deep-orange darken 1">
+                            <a href="#" class="brand-logo" id="leadHead">Last 10 Leads Added</a>
+
+                            <button data-target="modal1" class="btn modal-trigger" id="lead-added" href="#modal1">Add Lead</button>
+
+                        </div>
+                    </nav>
+                </div>
+
+
+
+
+                <!--Client list goes here (remember to create sub row-->
+                <div class="section" id="leadTableContainer">
+
+                    
+                        <table class="stripped">
+                            <thead>
+                                <tr>
+                                    <th>Lead ID</th>
+                                    <th>Customer Name</th>
+                                    <th>Business Name</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>12345</td>
+                                    <td>Frank Pham</td>
+                                    <td>Beauty Salon</td>
+                                </tr>
+                                <tr>
+                                    <td>12345</td>
+                                    <td>Frank Pham</td>
+                                    <td>Beauty Salon</td>
+                                </tr>
+                                <tr>
+                                    <td>12345</td>
+                                    <td>Frank Pham</td>
+                                    <td>Beauty Salon</td>
+                                </tr>
+                                <tr>
+                                    <td>12345</td>
+                                    <td>Frank Pham</td>
+                                    <td>Beauty Salon</td>
+                                </tr>
+                                <tr>
+                                    <td>12345</td>
+                                    <td>Frank Pham</td>
+                                    <td>Beauty Salon</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    
+
+                </div>
+
+                <div class="section" id="statusChartTitle">
+                    <nav>
+                        <div class="nav-wrapper deep-orange darken 1">
+                            <a href="#" class="brand-logo" id="leadHead">Client Lead Status</a>
+                        </div>
+                    </nav>
+                </div>
+
+                <div class="section" id="chartSection">
+                    <div id="statusChart">
 
                     </div>
                 </div>
+
+
+
+            </div>
+
+
         </div>
     </div>
+    </div>
+
+
 
 
     <!--Start Modal 1 - adding new customer-->
@@ -208,11 +258,13 @@
                     <div class="row">
                         <div class="input-field col s6">
                             <label for="work-phone">Work Phone</label>
-                            <input id="work-phone" data-parsley-type='digits' class="validate" required="" data-parsley-length="[10,10]" data-parsley-pattern="^\(?([0-9]{3})\)?[-.●]?([0-9]{3})[-.●]?([0-9]{4})$" placeholder="">
+                            <input id="work-phone" data-parsley-type='digits' class="validate" required="" data-parsley-length="[10,10]" data-parsley-pattern="^\(?([0-9]{3})\)?[-.●]?([0-9]{3})[-.●]?([0-9]{4})$"
+                                placeholder="">
                         </div>
                         <div class="input-field col s6">
                             <label for="mobile-phone">Mobile Phone</label>
-                            <input id="mobile-phone" data-parsley-type='digits' class="validate" required="" data-parsley-length="[10,10]" data-parsley-pattern="^\(?([0-9]{3})\)?[-.●]?([0-9]{3})[-.●]?([0-9]{4})$" placeholder="">
+                            <input id="mobile-phone" data-parsley-type='digits' class="validate" required="" data-parsley-length="[10,10]" data-parsley-pattern="^\(?([0-9]{3})\)?[-.●]?([0-9]{3})[-.●]?([0-9]{4})$"
+                                placeholder="">
                         </div>
                     </div>
 
@@ -240,13 +292,14 @@
                     <p>Lead #:
                         <span id="show-lead-id">1234</span>
                     </p>
-                    <P>Lead Status: 
+                    <P>Lead Status:
                         <span id="show-lead-status">Interested</span>
-                    </P><br>
+                    </P>
+                    <br>
                     <p>Customer:
                         <span id="show-customer-name">phung pham</span>
                     </p>
-                
+
                     <p>Business:
                         <span id="show-business-name">Beauty Salon</span>
                     </p>
@@ -254,7 +307,7 @@
                     <p>Work Phone:
                         <span id="show-work-phone">(407) 123-4567</span>
                     </p>
-                    
+
                     <p>Mobile Phone:
                         <span id="show-mobile-phone">(321) 123-4567</span>
                     </p>
@@ -278,11 +331,17 @@
 
                         <!-- Dropdown Structure -->
                         <ul id='statdrop' class='dropdown-content'>
-                            <li><a href="#!">one</a></li>
-                            <li><a href="#!">two</a></li>
-                            <li><a href="#!">three</a></li>
+                            <li>
+                                <a href="#!">one</a>
+                            </li>
+                            <li>
+                                <a href="#!">two</a>
+                            </li>
+                            <li>
+                                <a href="#!">three</a>
+                            </li>
                         </ul>
-                    </div>                    
+                    </div>
 
                     <div class="row">
                         <div class="input-field col s12" id="followup-action">
@@ -326,16 +385,26 @@
     <div id="modal3" class="modal">
         <div class="modal-content">
             <div class="row">
-                <h4>Follow-Up History: Lead #<span id="display-lead-id">1234</span></h4>
+                <h4>Follow-Up History: Lead #
+                    <span id="display-lead-id">1234</span>
+                </h4>
             </div>
             <div class="row">
                 <div class="col s6">
-                    <p>Customer: <span id="display-customer-name">phung pham</span></p>
-                    <p>Business Name: <span id="display-business-name">Beauty Salon</span></p>
+                    <p>Customer:
+                        <span id="display-customer-name">phung pham</span>
+                    </p>
+                    <p>Business Name:
+                        <span id="display-business-name">Beauty Salon</span>
+                    </p>
                 </div>
                 <div class="col s6">
-                    <p>Work Phone: <spa id="display-work-phone">(407) 123-356</spa></p>
-                    <p>Mobile Phone: <span id="display-mobile-phone">(321) 123-456</span></p>
+                    <p>Work Phone:
+                        <spa id="display-work-phone">(407) 123-356</spa>
+                    </p>
+                    <p>Mobile Phone:
+                        <span id="display-mobile-phone">(321) 123-456</span>
+                    </p>
                 </div>
             </div>
             <div class="row">
@@ -360,71 +429,114 @@
                 <button class="close-button btn-small modal-close confirmed">Done</button>
             </div>
         </div>
-    <div>
+        <div>
 
 
 
 
-    <!---->
-    <script>
-        // This example displays an address form, using the autocomplete feature
-        // of the Google Places API to help users fill in the information.
+            <!---->
+            <script>
+                // This example displays an address form, using the autocomplete feature
+                // of the Google Places API to help users fill in the information.
 
-        // This example requires the Places library. Include the libraries=places
-        // parameter when you first load the API. For example:
-        // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
+                // This example requires the Places library. Include the libraries=places
+                // parameter when you first load the API. For example:
+                // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
 
-        var placeSearch, autocomplete;
-        var componentForm = {
-            street_number: 'short_name',
-            route: 'long_name',
-            locality: 'long_name',
-            administrative_area_level_1: 'short_name',
-            country: 'long_name',
-            postal_code: 'short_name'
-        };
+                var placeSearch, autocomplete;
+                var componentForm = {
+                    street_number: 'short_name',
+                    route: 'long_name',
+                    locality: 'long_name',
+                    administrative_area_level_1: 'short_name',
+                    country: 'long_name',
+                    postal_code: 'short_name'
+                };
 
-        function initAutocomplete() {
-            // Create the autocomplete object, restricting the search to geographical
-            // location types.
-            autocomplete = new google.maps.places.Autocomplete(
+                function initAutocomplete() {
+                    // Create the autocomplete object, restricting the search to geographical
+                    // location types.
+                    autocomplete = new google.maps.places.Autocomplete(
                   /** @type {!HTMLInputElement} */(document.getElementById('business-autocomplete')),
-                { types: ['geocode'] });
+                        { types: ['geocode'] });
 
-            // When the user selects an address from the dropdown, populate the address
-            // fields in the form.
-            autocomplete.addListener('place_changed', fillInAddress);
-        }
-
-        function fillInAddress() {
-            // Get the place details from the autocomplete object.
-            var place = autocomplete.getPlace();
-
-            // for (var component in componentForm) {
-            //     document.getElementById(component).value = '';
-            //     document.getElementById(component).disabled = false;
-            // }
-
-            // Get each component of the address from the place details
-            // and fill the corresponding field on the form.
-            for (var i = 0; i < place.address_components.length; i++) {
-                var addressType = place.address_components[i].types[0];
-                if (componentForm[addressType]) {
-                    var val = place.address_components[i][componentForm[addressType]];
-                    // document.getElementById(addressType).value = val;
+                    // When the user selects an address from the dropdown, populate the address
+                    // fields in the form.
+                    autocomplete.addListener('place_changed', fillInAddress);
                 }
-            }
-        }
 
-        // Bias the autocomplete object to the user's geographical location,
-        // as supplied by the browser's 'navigator.geolocation' object.
-        function geolocate() {
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(function (position) {
-                    var geolocation = {
-                        lat: position.coords.latitude,
-                        lng: position.coords.longitude
+                function fillInAddress() {
+                    // Get the place details from the autocomplete object.
+                    var place = autocomplete.getPlace();
+
+                    // for (var component in componentForm) {
+                    //     document.getElementById(component).value = '';
+                    //     document.getElementById(component).disabled = false;
+                    // }
+
+                    // Get each component of the address from the place details
+                    // and fill the corresponding field on the form.
+                    for (var i = 0; i < place.address_components.length; i++) {
+                        var addressType = place.address_components[i].types[0];
+                        if (componentForm[addressType]) {
+                            var val = place.address_components[i][componentForm[addressType]];
+                            // document.getElementById(addressType).value = val;
+                        }
+                    }
+                }
+
+                // Bias the autocomplete object to the user's geographical location,
+                // as supplied by the browser's 'navigator.geolocation' object.
+                function geolocate() {
+                    if (navigator.geolocation) {
+                        navigator.geolocation.getCurrentPosition(function (position) {
+                            var geolocation = {
+                                lat: position.coords.latitude,
+                                lng: position.coords.longitude
+                            };
+                            var circle = new google.maps.Circle({
+                                center: geolocation,
+                                radius: position.coords.accuracy
+                            });
+                            autocomplete.setBounds(circle.getBounds());
+                        });
+                    }
+                }
+            </script>
+            <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+            <script type="text/javascript">
+
+                // Load the Visualization API and the corechart package.
+                google.charts.load('current', { 'packages': ['corechart'] });
+
+                // Set a callback to run when the Google Visualization API is loaded.
+                google.charts.setOnLoadCallback(drawChart);
+
+                // Callback that creates and populates a data table,
+                // instantiates the pie chart, passes in the data and
+                // draws it.
+                function drawChart() {
+
+                    // Create the data table.
+                    var data = new google.visualization.DataTable();
+                    data.addColumn('string', 'Status');
+                    data.addColumn('number', 'Clients');
+                    data.addRows([
+                        ['Potential', 3,],
+                        ['Interested', 1],
+                        ['Purchased', 1],
+                        ['Dropped', 1],
+                    ]);
+
+                    // Set chart options
+                    var options = {
+                        'title': 'Client Lead Status',
+                        'width': 492.75,
+                        'height': 270,
+                        'colors': ['#26a69a', '#ef5350', '#7e57c2', '#66bb6a'],
+                        'backgroundColor': '#eceff1'
                     };
+
                     var circle = new google.maps.Circle({
                         center: geolocation,
                         radius: position.coords.accuracy
@@ -436,6 +548,7 @@
     </script>
 
     
+
 
 </body>
 
