@@ -17,6 +17,17 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
     <link rel="stylesheet" href="./assets/css/style.css">
 
+    
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCMehvoOLcod3Fi1YS6c-inhIu1fZXVAy0&libraries=places&callback=initAutocomplete"
+    async defer></script>
+    <script src="./assets/js/parsley.min.js"></script>
+    
+    <script src="./assets/js/database.js"></script>
+    <script src="./assets/js/controls.js"></script>
+    <script src="./assets/js/validator.js"></script>
+    
+    <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script> -->
+
 </head>
 
 <body>
@@ -258,8 +269,8 @@
                     </div>
 
                     <div class="row">
-                        <!-- <button class="waves-effect waves-light btn-small modal-trigger" id="new-lead-confirmed" href="#modal2">Add New Lead</button> -->
-                        <button type="submit" class="waves-effect waves-light btn-small modal-trigger confirmed" value="validate">Save and Next</button>
+                        <button class="waves-effect waves-light btn-small modal-trigger confirmed" id="new-lead-confirmed" href="#modal2">Save and Next</button>
+                        <!--<button type="submit" class="waves-effect waves-light btn-small modal-trigger confirmed" value="validate">Save and Next</button>-->
                         <button class="btn-small black-text grey lighten-4 modal-close" id="close-button">Close</button>
                     </div>
                 </form>
@@ -306,7 +317,7 @@
                 <form id="form-followup" class="col s6">
                     <div class="row">
                         <div class="input-field col s12">
-                            <select id="lead-status">
+                            <select id="follow-up-status">
                                 <option value="" disabled selected>Select Follow-Up Status</option>
                                 <!-- <!-- <option value="1">Customer is busy</option> -->
                                 <option value="2">Need time for final decision</option>
@@ -316,8 +327,7 @@
                     </div>
 
                     <div class="row">
-                        <!-- Dropdown Trigger -->
-                        <a class='dropdown-trigger btn' href='#' data-target='statdrop'>Status</a>
+
 
                         <!-- Dropdown Structure -->
                         <ul id='statdrop' class='dropdown-content'>
@@ -358,13 +368,13 @@
                         </div>
 
                     </div>
-
-                    <div class="row">
-                        <button class="btn-small black-text grey lighten-4 modal-trigger" id="follow-up-history" href="#modal3">View Follow-up History</button>
-                        <button class="waves-effect waves-light btn-small confirmed" id="follow-up-confirmed">Done</button>
-                        <button class="btn-small black-text grey lighten-4 modal-close" id="close-button">Close</button>
-                    </div>
                 </form>
+
+                <div class="row">
+                    <button class="btn-small black-text grey lighten-4 modal-trigger" id="follow-up-history" href="#modal3">View Follow-up History</button>
+                    <button class="waves-effect waves-light btn-small confirmed" id="follow-up-confirmed">Done</button>
+                    <button class="btn-small black-text grey lighten-4 modal-close" id="close-button">Close</button>
+                </div>
             </div>
         </div>
     </div>
@@ -527,22 +537,17 @@
                         'backgroundColor': '#eceff1'
                     };
 
-                    // Instantiate and draw our chart, passing in some options.
-                    var chart = new google.visualization.PieChart(document.getElementById('statusChart'));
-                    chart.draw(data, options);
-                }
-            </script>
-            <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
-            <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
-            <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script> -->
-            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCMehvoOLcod3Fi1YS6c-inhIu1fZXVAy0&libraries=places&callback=initAutocomplete"
-                async defer></script>
-            <script src="./assets/js/parsley.min.js"></script>
+                    var circle = new google.maps.Circle({
+                        center: geolocation,
+                        radius: position.coords.accuracy
+                    });
+                    autocomplete.setBounds(circle.getBounds());
+                });
+            }
+        }
+    </script>
 
-            <script src="./assets/js/database.js"></script>
-            <script src="./assets/js/controls.js"></script>
-            <script src="./assets/js/validator.js"></script>
+    
 
 
 </body>
