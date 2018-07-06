@@ -17,15 +17,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
     <link rel="stylesheet" href="./assets/css/style.css">
 
-    
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCMehvoOLcod3Fi1YS6c-inhIu1fZXVAy0&libraries=places&callback=initAutocomplete"
-    async defer></script>
     <script src="./assets/js/parsley.min.js"></script>
-    
+
     <script src="./assets/js/database.js"></script>
     <script src="./assets/js/controls.js"></script>
     <script src="./assets/js/validator.js"></script>
-    
+
     <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script> -->
 
 </head>
@@ -143,44 +140,44 @@
                 <!--Client list goes here (remember to create sub row-->
                 <div class="section" id="leadTableContainer">
 
-                    
-                        <table class="stripped">
-                            <thead>
-                                <tr>
-                                    <th>Lead ID</th>
-                                    <th>Customer Name</th>
-                                    <th>Business Name</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>12345</td>
-                                    <td>Frank Pham</td>
-                                    <td>Beauty Salon</td>
-                                </tr>
-                                <tr>
-                                    <td>12345</td>
-                                    <td>Frank Pham</td>
-                                    <td>Beauty Salon</td>
-                                </tr>
-                                <tr>
-                                    <td>12345</td>
-                                    <td>Frank Pham</td>
-                                    <td>Beauty Salon</td>
-                                </tr>
-                                <tr>
-                                    <td>12345</td>
-                                    <td>Frank Pham</td>
-                                    <td>Beauty Salon</td>
-                                </tr>
-                                <tr>
-                                    <td>12345</td>
-                                    <td>Frank Pham</td>
-                                    <td>Beauty Salon</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    
+
+                    <table class="stripped">
+                        <thead>
+                            <tr>
+                                <th>Lead ID</th>
+                                <th>Customer Name</th>
+                                <th>Business Name</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>12345</td>
+                                <td>Frank Pham</td>
+                                <td>Beauty Salon</td>
+                            </tr>
+                            <tr>
+                                <td>12345</td>
+                                <td>Frank Pham</td>
+                                <td>Beauty Salon</td>
+                            </tr>
+                            <tr>
+                                <td>12345</td>
+                                <td>Frank Pham</td>
+                                <td>Beauty Salon</td>
+                            </tr>
+                            <tr>
+                                <td>12345</td>
+                                <td>Frank Pham</td>
+                                <td>Beauty Salon</td>
+                            </tr>
+                            <tr>
+                                <td>12345</td>
+                                <td>Frank Pham</td>
+                                <td>Beauty Salon</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
 
                 </div>
 
@@ -435,6 +432,8 @@
 
 
             <!---->
+            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCMehvoOLcod3Fi1YS6c-inhIu1fZXVAy0&libraries=places&callback=initAutocomplete"
+                async defer></script>
             <script>
                 // This example displays an address form, using the autocomplete feature
                 // of the Google Places API to help users fill in the information.
@@ -503,8 +502,9 @@
                     }
                 }
             </script>
+
             <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-            <script type="text/javascript">
+            <script>
 
                 // Load the Visualization API and the corechart package.
                 google.charts.load('current', { 'packages': ['corechart'] });
@@ -536,18 +536,17 @@
                         'colors': ['#26a69a', '#ef5350', '#7e57c2', '#66bb6a'],
                         'backgroundColor': '#eceff1'
                     };
+                    // Instantiate and draw our chart, passing in some options.
+                    var chart = new google.visualization.PieChart(document.getElementById('chartSection'));
+                    chart.draw(data, options);
+                };
 
-                    var circle = new google.maps.Circle({
-                        center: geolocation,
-                        radius: position.coords.accuracy
-                    });
-                    autocomplete.setBounds(circle.getBounds());
-                });
-            }
-        }
-    </script>
+                
 
-    
+
+            </script>
+
+
 
 
 </body>
