@@ -20,27 +20,38 @@ var customerID = database.ref('counter/customer');
 var followupID = database.ref('counter/followup');
 var customers = database.ref('customers/');
 var followups = database.ref('followups/');
-var statActs = database.ref('status-action/');
+var statActs = {
+  "Customer is Busy": "Call back",
+  "Call but no answer": "Call back",
+  "Need to discuss": [
+    "Follow-Up",
+    "Dropped => change lead status \"Dropped\""
+  ],
+  "Already purchased": [
+    "Follow-Up",
+    "Dropped => change lead status \"Dropped\""
+  ],
+  "No longer Need": [
+    "Follow-Up",
+    "Dropped => change lead status \"Dropped\""
+  ],
+  "Not purchase now": "Turn to \"Cold Lead\" => change to \"Potential\" lead",
+  "Follow up Sales Order": [
+    "Request shipping Date",
+    "Waiting to Ship",
+    "Check Inventory"
+  ],
+  "Shipped": "No Action needed",
+  "Order Completed": "No Action needed"
+}
+
 var leadstats = database.ref('leadstats/');
 
 var customerIDForFollowups = 0;
-var statusList = [];
+var statusList = 
 
 ///////////////////// add event listeners for database references
-////////// once
-statActs.once("value", function(snapshot) {
-  //// get list of actions once
-  snapshot.forEach(e => {
-	  statusList.push(e.key);
-  });
-});
-////////// once
-////////// on
 
-
-
-
-////////// on
 
 ///////////////////// add event listeners for database references
 ///////////////////// functions that add records to the database
@@ -106,10 +117,19 @@ function addObjectHistory () {
 function getCustomerFields(id,objGetter) {
 
 }
-function getStatus () {
-  // statActs.
-}
+function getJSON(callback) {   
 
+  var xobj = new XMLHttpRequest();
+      xobj.overrideMimeType("application/json");
+  xobj.open('GET', 'C:/Users/vorga/Documents/ACTIVE-SYNCED/42/project1.json', true); // Replace 'my_data' with the path to your file
+  xobj.onreadystatechange = function () {
+        if (xobj.readyState == 4 && xobj.status == "200") {
+          // Required use of an anonymous callback as .open will NOT return a value but simply returns undefined in asynchronous mode
+          callback(xobj.responseText);
+        }
+  };
+  xobj.send(null);  
+}
 
 
 

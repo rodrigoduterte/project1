@@ -1,0 +1,34 @@
+{
+  "counter": {
+    "customer":0,
+    "followup":0
+  },
+  "leadstats": {
+    "potential": "0",
+    "interested": "0",
+    "purchased": "0",
+    "dropped": "0"
+  },
+  "customers": {
+    "mockcustomer": {
+      "id": "",
+      "firstname": "\"\"",
+      "lastname": "\"\"",
+      "businessname": "\"\"",
+      "businessaddress": "\"\"",
+      "workphone": "\"\"",
+      "mobilephone": "\"\"",
+      "leadstatus": "\"\""
+    }
+  },
+  "followups": {
+    "mockfollowup": {
+      "customerid":"",
+      "status": "\"\"",
+      "action": "\"\"",
+      "date": "\"\"",
+      "note": "\"\""
+    }
+  },
+  "history":{}
+}

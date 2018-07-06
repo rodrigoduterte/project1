@@ -6,26 +6,21 @@ var formvariables = {
     customer: {firstname:"",lastname:"",businessname:"",businessaddress:"",workphone:"",mobilephone:"",leadstatus:""}
 };
 
-statusList.forEach(e => {
-    console.log
-    // var option = document.createElement('option');
-    // var text = document.createTextNode(e);
-    // option.appendChild(text);
-    // leadstatus.insertAfter(option,leadstatus.lastChild);
-    $('#lead-status').append('<option>abc</option>');
-    // $("#lead-status").trigger('contentChanged');
-});
 var nextCounter = 0;
 var lastCounter = 0;
+var arrayOption = [];
 
 
 $(document).ready(function () {
-    // $('select').material_select();
-    // $('select').on('contentChanged', function() {
-    //     $(this).material_select();
-    //   });
+   Object.getOwnPropertyNames(statActs).forEach(e => {
+        console.log(e);
+        $('#followup-status').append('<option>'+ e +'</option>');
+    });
     
-    
+    $('#lead-status').append('<option>aaaaaaa</option>');   
+    $('#followup-status').select(function(){
+        statActs[$(this).text()]
+    });
     ///initialize all modals           
     $('.modal').modal();
     //initialize option selection within form
