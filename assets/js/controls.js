@@ -1,4 +1,4 @@
-var currentDate = moment().format('MM-DD-YYYY');
+    var currentDate = moment().format('MM-DD-YYYY');
 var datepicker = document.querySelector('.datepicker');
 var leadstatus = document.getElementById("lead-status");
 
@@ -28,10 +28,12 @@ $(document).ready(function () {
 
     // $("select").material_select();
     // $("#lead-status").empty().html();
+        //initialize date picker
+        $('#next-follow-up-date').datepicker();
     
     // $("#lead-status").material_select('update');
     // $("#lead-status").closest('.input-field').children('span.caret').remove();
-    //initialize date picker
+
     M.Datepicker.init(datepicker,{
         minDate: new Date() /// prevents the user from selecting dates before now
     });
