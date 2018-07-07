@@ -25,8 +25,6 @@
     <script src="./assets/js/controls.js"></script>
     <script src="./assets/js/validator.js"></script>
 
-    <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script> -->
-
 </head>
 
 <body>
@@ -128,7 +126,7 @@
                 <div class="section" id="clientChartTitle">
                     <nav>
                         <div class="nav-wrapper deep-orange darken 1">
-                            <a href="#" class="brand-logo" id="leadHead">Last 10 Leads Added</a>
+                            <a href="#" class="brand-logo" id="leadHead">Last 5 Leads Added</a>
 
                             <button data-target="modal1" class="btn modal-trigger" id="lead-added" href="#modal1">Add Lead</button>
 
@@ -151,8 +149,8 @@
                                 <th>Business Name</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr>
+                        <tbody id="lead-table">
+                            <!-- <tr>
                                 <td>12345</td>
                                 <td>Frank Pham</td>
                                 <td>Beauty Salon</td>
@@ -176,7 +174,7 @@
                                 <td>12345</td>
                                 <td>Frank Pham</td>
                                 <td>Beauty Salon</td>
-                            </tr>
+                            </tr> -->
                         </tbody>
                     </table>
 
@@ -269,7 +267,7 @@
 
                     <div class="row">
 
-                        <button class="waves-effect waves-light btn-small modal-trigger confirmed" id="new-lead-confirmed" href="#modal2">Save and Next</button>
+                        <button class="waves-effect waves-light btn-small modal-trigger confirmed modal-close" id="new-lead-confirmed" href="#modal2">Save and Next</button>
                         <!--<button type="submit" class="waves-effect waves-light btn-small modal-trigger confirmed" value="validate">Save and Next</button>-->
 
                         <button class="btn-small black-text grey lighten-4 modal-close" id="close-button">Close</button>
@@ -324,36 +322,20 @@
 
                                 <option value="" disabled selected>Select Follow-Up Status</option>
                                 <!-- <!-- <option value="1">Customer is busy</option> -->
-                                <option value="2">Need time for final decision</option>
-                                <option value="3">Purchased</option> -->
+                                <!-- <option value="2">Need time for final decision</option>
+                                <option value="3">Purchased</option> --> -->
                             </select>
                         </div>
                     </div>
 
                     <div class="row">
-
-
-                        <!-- Dropdown Structure -->
-                        <ul id='statdrop' class='dropdown-content'>
-                            <li>
-                                <a href="#!">one</a>
-                            </li>
-                            <li>
-                                <a href="#!">two</a>
-                            </li>
-                            <li>
-                                <a href="#!">three</a>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="row">
-                        <div class="input-field col s12" id="followup-action">
-                            <select>
+                        <!-- <div class="input-field col s12" id="followup-action"> -->
+                        <div class="col s12">
+                            <select id="followup-action">
                                 <option value="" disabled selected>Select Next Action</option>
-                                <option value="1">Call Back</option>
+                                <!-- <option value="1">Call Back</option>
                                 <option value="2">Check Inventory</option>
-                                <option value="3">Proceed Payment</option>
+                                <option value="3">Proceed Payment</option> -->
                             </select>
                         </div>
                     </div>
@@ -376,7 +358,7 @@
 
                 <div class="row">
                     <button class="btn-small black-text grey lighten-4 modal-trigger" id="follow-up-history" href="#modal3">View Follow-up History</button>
-                    <button class="waves-effect waves-light btn-small confirmed" id="follow-up-confirmed">Done</button>
+                    <button class="waves-effect waves-light btn-small modal-trigger modal-close confirmed" id="follow-up-confirmed">Done</button>
                     <button class="btn-small black-text grey lighten-4 modal-close" id="close-button">Close</button>
                 </div>
             </div>
