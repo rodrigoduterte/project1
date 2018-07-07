@@ -34,24 +34,20 @@ var leadstats = {
   dropped: 0
 };
 
-///////////////////// add event listeners for database references
-function addCustomerFollowUpListener(id) {
-  database
-    .ref("customer/" + id + "/followups")
-    .on("child_added", function(snap) {
-      database.ref("leadstats/" + snap.val()).transaction(
-        function(stat) {
-          if (stat === null) {
-            return stat + 1;
-          } else {
-            return stat + 1;
-          }
-        },
-        function(error, committed, snapshot) {}
-      );
-    });
-}
+// var data = new google.visualization.DataTable();
+// data.addColumn("string", "Status");
+//   data.addColumn("number", "Clients");
+//   data.addRows([
+//     ["Potential", leadstats["potential"]],
+//     ["Interested", leadstats["interested"]],
+//     ["Purchased", leadstats["purchased"]],
+//     ["Dropped", leadstats["dropped"]]
+//   ]);
 
+database.ref('leadstats/').once('value',function(snap){
+  leadstats = snap.val();
+});
+///////////////////// add event listeners for database references
 customers
   .orderByKey()
   .limitToLast(5)
@@ -73,42 +69,29 @@ customers
   });
 
 customers.on("child_added", function(snapshot) {
-  database.ref("leadstats/" + snapshot.val().leadstatus).transaction(
-    function(stat) {
-      if (stat === null) {
-        return stat + 1;
-      } else {
-        return stat + 1;
-      }
-    },
-    function(error, committed, snapshot) {
-      console.log("key of leadstat" + snapshot.key);
-      leadstats[snapshot.key] = snapshot.val();
-    }
-  );
-
-  const markup = `
+  var markup = `
     <div class="card blue-grey darken-3">
     <div class="card-content blue-grey lighten-5">
       <h4 class="card-title" id="custName">${snapshot.val().businessname}</h4>
-      <h6 class="card-title">${snapshot.val().firstname +
-        "" +
-        snapshot.val().lastname}</h6>
+      <h6 class="card-title">${snapshot.val().firstname + " " + snapshot.val().lastname}</h6>
         <ul>
           <li><b>Action:</b> ${snapshot.val().followups.action}</li>
           <li><b>Note:</b> ${snapshot.val().followups.note}</li>
           <br>
-          <li><b>DueDate:</b> ${snapshot.val().followups.date}</li>
-          <li><b>Work #:</b> ${snapshot.val().workphone}</li>
-          <li><b>Address:</b> ${snapshot.val().businessaddress}</li>
+          <li><b>Due Date:</b> ${snapshot.val().followups.date}</li>
+          <li><b>Work Phone:</b> ${snapshot.val().workphone}</li>
+          <li><b>Business Address:</b> ${snapshot.val().businessaddress}</li>
         </ul>
     <div class="card-action">
-        <button class="btn-small right orange darken-4" id="completed">Complete</button>
+
+        <button data-target="modal2" class="btn-small right modal-trigger orange darken-4 fp" href="#modal2">Follow Up</button>
+
     </div>
   </div>
   </div>`;
-
+  $(".fp").attr("disabled", "true");
   $("#calendar").prepend(markup);
+  drawChart();
 });
 
 ///////////////////// add event listeners for database references
@@ -127,9 +110,8 @@ function addCustomer() {
     },
     function(error, committed, snapshot) {
       if (error) {
-        console.log("Customer ID unchanged!", error);
+
       } else if (committed) {
-        console.log("Incremented Customer ID.");
         customers.child(snapshot.val()).set({
           firstname: formvariables.customer.firstname,
           lastname: formvariables.customer.lastname,
@@ -145,15 +127,11 @@ function addCustomer() {
             note: formvariables.followups.note
           }
         });
+        leadstats[formvariables.customer.leadstatus]++;
+        database.ref('leadstats/').set(leadstats);
       }
     }
   );
 }
 
 ///////////////////// functions that add records to the database
-///////////////////// functions that get records from the database
-function getCustomerFields(id, objGetter) {}
-
-///////////////////// functions that get records from the database
-
-//create event listener for each lead status

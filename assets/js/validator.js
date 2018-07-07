@@ -1,28 +1,40 @@
-// formvariables.customer.constraints = {
-//     firstname: {
-//         presence: true
-//     },
-//     lastname: {
-//         presence: true
-//     },
-//     businessname: {
-//         presence: true
-//     },
-//     workphone: {
-//         length: 10
-//     },
-//     mobilephone: {
-//         length: 10
-//     }
-// }
+var modal1constraints = {
+    firstname: {
+        presence: true
+        // message: "disallow"
+    },
+    lastname: {
+        presence: true
+        // message: "disallow"
+    },
+    businessname: {
+        presence: true
+    //     message: "disallow"
+    },
+    address: {
+        presence: true
+        // message: "disallow"
+    },
+    workphone: {
+        presence: true
+        // message: "disallow"
+    },
+    mobilephone: {
+        presence: true
+        // message: "disallow"
+    }
+};
 
-// $(document).ready(function () {
-//     $('#form-customer').parsley().on('field:validated', function() {
-//         var ok = $('.parsley-error').length === 0;
-//         $('.bs-callout-info').toggleClass('hidden', !ok);
-//         $('.bs-callout-warning').toggleClass('hidden', ok);
-//     })
-//     .on('form:submit', function() {
-//         return false; // Don't submit form for this demo
-//     });
-// });
+var modal2constraints = {
+    date: {
+        presence: true
+    },
+    memo: {
+        presence: true
+    }
+};
+
+//validate modal1
+// validate(formvariables.customer,modal1constraints);
+//validate modal2
+// validate(formvariables.followups,modal2constraints);
