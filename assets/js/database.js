@@ -73,13 +73,36 @@ customers.on("child_added", function (snapshot) {
       return stat + 1;
     }
 
-  },function(error,committed,snapshot){
+  }, function (error, committed, snapshot) {
     console.log('key of leadstat' + snapshot.key);
     leadstats[snapshot.key] = snapshot.val();
 
   });
 
-  
+  customers.on("child_added", function (snapshot) {
+    const markup = `
+    <div class="card blue-grey darken-3">
+    <div class="card-content blue-grey lighten-5">
+      <h4 class="card-title" id="custName">${snapshot.val().businessname}</h4>
+      <h6 class="card-title">${snapshot.val().firstname + "" + snapshot.val().lastname}</h6>
+        <ul>
+          <li><b>Action:</b> ${snapshot.val().followups.action}</li>
+          <li><b>Note:</b> ${snapshot.val().followups.note}</li>
+          <br>
+          <li><b>DueDate:</b> ${snapshot.val().followups.date}</li>
+          <li><b>Work #:</b> ${snapshot.val().workphone}</li>
+          <li><b>Address:</b> ${snapshot.val().businessaddress}</li>
+        </ul>
+    <div class="card-action">
+        <button data-target="modal2" class="btn-small right modal-trigger orange darken-4" id="lead-addded" href="#modal2">Follow Up</button>
+    </div>
+  </div>
+  </div>`;
+
+    $('#calendar').prepend(markup);
+  });
+
+
 });
 
 
