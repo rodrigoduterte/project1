@@ -42,10 +42,20 @@ th {
     border: none;
 }
 
+#custName{
+    font-weight: bold;
+}
 
+#lead-added {
+    position: relative;
+    float: right;
+    top: -35px;
+    right: 5px;
+}
 
 #nextDay {
     margin: 12px;
+    display: none;
 }
 
 #today {
