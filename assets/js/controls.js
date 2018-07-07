@@ -105,6 +105,10 @@ $(document).ready(function() {
     addCustomer();
     clearFieldsOnModal2();
   });
+
+  $('#completed').on('click', function(){
+      
+  })
 });
 
 formvariables.saveCustomer = function(cansave) {
