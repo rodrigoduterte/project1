@@ -109,40 +109,29 @@ $(document).ready(function() {
 
 formvariables.saveCustomer = function(cansave) {
   if (cansave) {
-    (formvariables.customer.firstname = $("#first-name").val()),
-      (formvariables.customer.lastname = $("#last-name").val()),
-      (formvariables.customer.businessname = $("#business-name").val()),
-      (formvariables.customer.businessaddress = $("#addressInput").val()),
-      (formvariables.customer.workphone = $("#work-phone").val()),
-      (formvariables.customer.mobilephone = $("#mobile-phone").val()),
-      (formvariables.customer.leadstatus =
-        $("#lead-status option:selected").val() != ""
-          ? $("#lead-status option:selected").text()
-          : "");
+    formvariables.customer.firstname = $("#first-name").val();
+    formvariables.customer.lastname = $("#last-name").val();
+    formvariables.customer.businessname = $("#business-name").val();
+    formvariables.customer.businessaddress = $("#addressInput").val();
+    formvariables.customer.workphone = $("#work-phone").val();
+    formvariables.customer.mobilephone = $("#mobile-phone").val();
+    formvariables.customer.leadstatus = $("#lead-status option:selected").val();
   }
 };
 
 formvariables.saveFollowup = function(cansave) {
   if (cansave) {
-    (formvariables.followups.status =
-      $("#followup-status option:selected").val() != ""
-        ? $("#followup-status option:selected").text()
-        : ""),
-      (formvariables.followups.action =
-        $("#followup-action option:selected").val() != ""
-          ? $("#followup-action option:selected").text()
-          : ""),
-      (formvariables.followups.date = $("#next-follow-up-date").val()),
-      (formvariables.followups.note = $("#memo").val());
+    formvariables.followups.status = $("#followup-status option:selected").text();
+    formvariables.followups.action = $("#followup-action option:selected").text();
+    formvariables.followups.date = $("#next-follow-up-date").val(),
+    formvariables.followups.note = $("#memo").val();
   }
 };
 
 function displayCustomerOnFollowUpModal() {
   $("#show-lead-status").text(formvariables.customer.leadstatus);
   $("#show-business-name").text(formvariables.customer.businessname);
-  $("#show-customer-name").text(
-    formvariables.customer.firstname + " " + formvariables.customer.lastname
-  );
+  $("#show-customer-name").text(formvariables.customer.firstname + " " + formvariables.customer.lastname);
   $("#show-work-phone").text(formvariables.customer.workphone);
   $("#show-mobile-phone").text(formvariables.customer.mobilephone);
 }
@@ -152,7 +141,7 @@ function clearFieldsOnModal1() {
   $("#first-name").val("");
   $("#last-name").val("");
   $("#business-name").val("");
-  $("#business-autocomplete").val("");
+  $("#addressInput").val("");
   $("#work-phone").val("");
   $("#mobile-phone").val("");
 }
