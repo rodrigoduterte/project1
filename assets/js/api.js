@@ -71,22 +71,22 @@ google.charts.load("current", { packages: ["corechart"] });
 
 // Set a callback to run when the Google Visualization API is loaded.
 google.charts.setOnLoadCallback(drawChart);
-
+setInterval(drawChart,1000);
 // Callback that creates and populates a data table,
 // instantiates the pie chart, passes in the data and
 // draws it.
+
 function drawChart() {
-  // Create the data table.
+  // Create the data table. 
   var data = new google.visualization.DataTable();
   data.addColumn("string", "Status");
   data.addColumn("number", "Clients");
   data.addRows([
-    ["Potential", 3],
-    ["Interested", 1],
-    ["Purchased", 1],
-    ["Dropped", 1]
+    ["Potential", leadstats["potential"]],
+    ["Interested", leadstats["interested"]],
+    ["Purchased", leadstats["purchased"]],
+    ["Dropped", leadstats["dropped"]]
   ]);
-
   // Set chart options
   var options = {
     title: "Client Lead Status",
