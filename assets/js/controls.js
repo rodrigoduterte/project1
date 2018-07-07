@@ -18,22 +18,18 @@ $(document).ready(function () {
         $('#followup-status').append('<option>'+ e +'</option>');
     });
     
+    $("#followup-action").append('<option>' + statActs['Customer is Busy'] + '</option>');
     
-
-    // $('#lead-status').append('<option>aaaaaaa</option>');   
-    // $('#followup-status').select(function(){
-    //     statActs[$(this).text()]
-    // });
     ///initialize all modals           
     $('.modal').modal();
     //initialize option selection within form
     $('select').formSelect();
 
+
     $("#followup-status").on('change',function () {
         // your function here
         // console.log($("#ollowup-status option:selected").text());
         $("#followup-action").empty();
-        $("#followup-action").append("<option disabled selected>"+"Select Next Action"+"</option>");
         var selected = $("#followup-status :selected").text();
         console.log(statActs[selected]);
         if (Array.isArray(statActs[selected])){statActs[selected].forEach(e=>{$("#followup-action").append('<option>' + e + '</option>')})} else {
@@ -79,15 +75,23 @@ $(document).ready(function () {
         nextCounter = 0;
         $('#today').hide();
     })
+    $('#close-button1').on('click',function(){
+        clearFieldsOnModal1();
+    });
 
     $('#new-lead-confirmed').on('click',function(){
         console.log("add customer button clicked");
         ///// must hide 
+        formvariables.saveCustomer(true);
+        console.log(formvariables);
         displayCustomerOnFollowUpModal();
+        console.log(formvariables);
+        clearFieldsOnModal1();
     });
     $('#follow-up-confirmed').on('click',function(){
-        formvariables.saveCustomer(true);
+        formvariables.saveFollowup(true);
         addCustomer();
+        clearFieldsOnModal2();
     });
 });
 
@@ -99,21 +103,39 @@ formvariables.saveCustomer = function (cansave) {
         formvariables.customer.businessaddress = $('#business-autocomplete').val(),
         formvariables.customer.workphone = $('#work-phone').val(),
         formvariables.customer.mobilephone = $('#mobile-phone').val(),
-        formvariables.customer.leadstatus = $('#lead-status option:selected').val(),
-        formvariables.followups.status = $('#followup-status option:selected').text() ? $('#followup-status option:selected').text() : "",
-        formvariables.followups.action = $('#followup-action option:selected').text() ? $('#followup-action option:selected').text() : "",
+        formvariables.customer.leadstatus = ($('#lead-status option:selected').val() != "") ? $('#lead-status option:selected').text() : ""
+    }
+}
+
+formvariables.saveFollowup = function (cansave) {
+    if (cansave) {
+        formvariables.followups.status = ($('#followup-status option:selected').val() != "") ? $('#followup-status option:selected').text() : "",
+        formvariables.followups.action = ($('#followup-action option:selected').val() != "") ? $('#followup-action option:selected').text() : "",
         formvariables.followups.date = $('#next-follow-up-date').val(),
         formvariables.followups.note = $('#memo').val()
     }
 }
 
-
 function displayCustomerOnFollowUpModal () {
-    $("#show-lead-status").val(formvariables.customer.leadstatus);
-    $("#show-business-name").val(formvariables.customer.businessname);
-    $("#show-customer-name").val(formvariables.customer.firstname + " " + formvariables.customer.lastname);
-    $("#show-business-name").val(formvariables.customer.businessname);
-    $("#show-work-phone").val(formvariables.customer.workphone);
-    $("#show-mobile-phone").val(formvariables.customer.mobilephone);
+    $("#show-lead-status").text(formvariables.customer.leadstatus);
+    $("#show-business-name").text(formvariables.customer.businessname);
+    $("#show-customer-name").text(formvariables.customer.firstname + " " + formvariables.customer.lastname);
+    $("#show-work-phone").text(formvariables.customer.workphone);
+    $("#show-mobile-phone").text(formvariables.customer.mobilephone);
+}
 
+function clearFieldsOnModal1 () {
+    $('#lead-status option:first').prop('selected',true);
+    $('#first-name').val("");
+    $('#last-name').val("");
+    $('#business-name').val("");
+    $('#business-autocomplete').val("");
+    $('#work-phone').val("");
+    $('#mobile-phone').val("");
+}
+
+function clearFieldsOnModal2 () {
+    $('#followup-status option:first').prop('selected',true);
+    $('#followup-action').empty();
+    $('#memo').val("");
 }

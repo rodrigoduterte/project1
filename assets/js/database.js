@@ -8,22 +8,10 @@ var config = {
   };
 firebase.initializeApp(config);
 
-var leadstatsKeys = {
-  "potential": "0",
-  "interested": "0",
-  "purchased": "0",
-  "dropped": "0"
-};
-
 var database = firebase.database();
 var customerID = database.ref('counter/customer');
 var followupID = database.ref('counter/followup');
 var customers = database.ref('customers/');
-var potential = database.ref('leadstats/potential');
-var interested = database.ref('leadstats/interested');
-var purchased = database.ref('leadstats/purchased');
-var dropped = database.ref('leadstats/dropped');
-var leadstats = database.ref('leadstats/');
 var statActs = {
   "Customer is Busy": "Call back",
   "Call but no answer": "Call back",
@@ -48,6 +36,12 @@ var statActs = {
   "Shipped": "No Action needed",
   "Order Completed": "No Action needed"
 }
+var leadstats = {
+  "potential": 0,
+  "interested": 0,
+  "purchased": 0,
+  "dropped": 0
+};
 
 ///////////////////// add event listeners for database references
 function addCustomerFollowUpListener(id) {
@@ -79,7 +73,8 @@ customers.on("child_added",function(snapshot) {
       return stat + 1;
     }
   },function(error,committed,snapshot){
-
+    console.log('key of leadstat' + snapshot.key);
+    leadstats[snapshot.key] = snapshot.val();
   });
 });
 
