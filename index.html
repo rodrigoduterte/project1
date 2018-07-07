@@ -56,37 +56,19 @@
                 </nav>
                 <div class="section" id="calendar">
 
-                    <script>
-                        customers.on("child_added", function (snapshot) {
-                            const markup = `
-                    <div class="card blue-grey darken-3">
-                        <div class="card-content blue-grey lighten-5">
-                            <h5 class="card-title" id="custName">${snapshot.val().businessname}</h5>
-                            <ul>
-                                <li><b>Action:</b> ${snapshot.val().followups.action}</li>
-                                <li><b>Note:</b> ${snapshot.val().followups.note}</li>
-                            </ul>
-                            <div class="card-action">
-                                <button data-target="modal2" class="btn-small right modal-trigger orange darken-4" id="lead-addded" href="#modal2">Follow Up</button>
-                            </div>
-                        </div>
-                    </div>`;
-
-                            $('#calendar').prepend(markup);
-                        });
-                    </script>
-
 
                     <div class="card blue-grey darken-3">
                         <div class="card-content blue-grey lighten-5">
                             <h5 class="card-title" id="custName">#001 Customer Name</h5>
                             <ul>
-                                <li><b>Action:</b> Call Back</li>
-                                <li><b>Note:</b> Customer was busy, call back today around 2:15pm.</li>
+                                <li>
+                                    <b>Action:</b> Call Back</li>
+                                <li>
+                                    <b>Note:</b> Customer was busy, call back today around 2:15pm.</li>
                             </ul>
                             <div class="card-action">
-                                    <button data-target="modal2" class="btn-small right modal-trigger orange darken-4" id="lead-addded" href="#modal2">Follow Up</button>
-                                </div>
+                                <button data-target="modal2" class="btn-small right modal-trigger orange darken-4" id="lead-addded" href="#modal2">Follow Up</button>
+                            </div>
                         </div>
                     </div>
 
@@ -94,12 +76,14 @@
                         <div class="card-content blue-grey lighten-5">
                             <h5 class="card-title" id="custName">#001 Customer Name</h5>
                             <ul>
-                                <li><b>Action:</b> Call Back</li>
-                                <li><b>Note:</b> Customer was busy, call back today around 2:15pm.</li>
+                                <li>
+                                    <b>Action:</b> Call Back</li>
+                                <li>
+                                    <b>Note:</b> Customer was busy, call back today around 2:15pm.</li>
                             </ul>
                             <div class="card-action">
-                                    <button data-target="modal2" class="btn-small right modal-trigger orange darken-4" id="lead-addded" href="#modal2">Follow Up</button>
-                                </div>
+                                <button data-target="modal2" class="btn-small right modal-trigger orange darken-4" id="lead-addded" href="#modal2">Follow Up</button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -109,12 +93,12 @@
             </div>
 
             <div class="col s12 m6" id="stats">
-                    <nav>
-                        <div class="nav-wrapper orange darken-3">
-                            <a href="#" class="brand-logo">New Customers</a>
-                            <a data-target="modal1" class="btn-small right orange darken-4 modal-trigger" id="lead-added" href="#modal1">Add New</a>                     
-                        </div>
-                    </nav>
+                <nav>
+                    <div class="nav-wrapper orange darken-3">
+                        <a href="#" class="brand-logo">New Customers</a>
+                        <a data-target="modal1" class="btn-small right orange darken-4 modal-trigger" id="lead-added" href="#modal1">Add New</a>
+                    </div>
+                </nav>
 
 
 
@@ -159,8 +143,8 @@
                     </div>
                 </div>
 
+            </div>
         </div>
-    </div>
     </div>
     </div>
 
@@ -192,18 +176,18 @@
                     <div class="row">
                         <div class="input-field col s6 m6">
                             <label for="first-name">First Name</label>
-                            <input id="first-name" type="text" class="validate" required="">
+                            <input id="first-name" type="text" class="validate" placeholder="" required="">
                         </div>
                         <div class="input-field col s6 m6">
                             <label for="last-name">Last Name</label>
-                            <input id="last-name" type="text" class="validate" required="">
+                            <input id="last-name" type="text" class="validate" placeholder="" required="">
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="input-field col s6 m6">
                             <label for="busines-name">Business Name</label>
-                            <input id="business-name" type="text" class="validate" required="">
+                            <input id="business-name" type="text" class="validate" placeholder="" required="">
                         </div>
                         <div class="input-field col s6 m6">
                             <label for="business-address">Address</label>
@@ -215,13 +199,13 @@
                     <div class="row">
                         <div class="input-field col s6 m6">
                             <label for="work-phone">Work Phone</label>
-                            <input id="work-phone" data-parsley-type='digits' class="validate" required="" data-parsley-length="[10,10]" data-parsley-pattern="^\(?([0-9]{3})\)?[-.●]?([0-9]{3})[-.●]?([0-9]{4})$"
-                                placeholder="">
+                            <input id="work-phone" data-parsley-type='digits' class="validate" placeholder="" required="" data-parsley-length="[10,10]"
+                                data-parsley-pattern="^\(?([0-9]{3})\)?[-.●]?([0-9]{3})[-.●]?([0-9]{4})$" placeholder="">
                         </div>
                         <div class="input-field col s6 m6">
                             <label for="mobile-phone">Mobile Phone</label>
-                            <input id="mobile-phone" data-parsley-type='digits' class="validate" required="" data-parsley-length="[10,10]" data-parsley-pattern="^\(?([0-9]{3})\)?[-.●]?([0-9]{3})[-.●]?([0-9]{4})$"
-                                placeholder="">
+                            <input id="mobile-phone" data-parsley-type='digits' class="validate" placeholder="" required="" data-parsley-length="[10,10]"
+                                data-parsley-pattern="^\(?([0-9]{3})\)?[-.●]?([0-9]{3})[-.●]?([0-9]{4})$" placeholder="">
                         </div>
                     </div>
 
@@ -393,8 +377,9 @@
 
 
 
-            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCMehvoOLcod3Fi1YS6c-inhIu1fZXVAy0&libraries=places&callback=initAutocomplete" async defer></script>
-            
+            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCMehvoOLcod3Fi1YS6c-inhIu1fZXVAy0&libraries=places&callback=initAutocomplete"
+                async defer></script>
+
 </body>
 
 </html>
