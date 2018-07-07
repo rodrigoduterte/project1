@@ -112,8 +112,10 @@ $(document).ready(function() {
     clearFieldsOnModal2();
     clearInterval(startInterval2);
   });
+
   $("#follow-up-confirmed").attr("disabled", "true");
   
+
 });
 
 formvariables.saveCustomer = function(cansave) {
