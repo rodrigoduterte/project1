@@ -14,7 +14,6 @@ var arrayOption = [];
 
 $(document).ready(function () {
     Object.getOwnPropertyNames(statActs).forEach(e => {
-        // $('#followup-status').append('<option class="stat" value="'+ e +'">'+ e +'</option>');
         $('#followup-status').append('<option>'+ e +'</option>');
     });
     
@@ -81,7 +80,6 @@ $(document).ready(function () {
 
     $('#new-lead-confirmed').on('click',function(){
         console.log("add customer button clicked");
-        ///// must hide 
         formvariables.saveCustomer(true);
         console.log(formvariables);
         displayCustomerOnFollowUpModal();
