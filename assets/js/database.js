@@ -19,23 +19,27 @@ var database = firebase.database();
 var customerID = database.ref('counter/customer');
 var followupID = database.ref('counter/followup');
 var customers = database.ref('customers/');
-var followups = database.ref('followups/');
+var potential = database.ref('leadstats/potential');
+var interested = database.ref('leadstats/interested');
+var purchased = database.ref('leadstats/purchased');
+var dropped = database.ref('leadstats/dropped');
+var leadstats = database.ref('leadstats/');
 var statActs = {
   "Customer is Busy": "Call back",
   "Call but no answer": "Call back",
   "Need to discuss": [
     "Follow-Up",
-    "Dropped => change lead status \"Dropped\""
+    "Change lead status to Dropped"
   ],
   "Already purchased": [
     "Follow-Up",
-    "Dropped => change lead status \"Dropped\""
+    "Change lead status to Dropped"
   ],
   "No longer Need": [
     "Follow-Up",
-    "Dropped => change lead status \"Dropped\""
+    "Change lead status to Dropped"
   ],
-  "Not purchase now": "Turn to \"Cold Lead\" => change to \"Potential\" lead",
+  "Not purchase now": "Change lead status to Potential",
   "Follow up Sales Order": [
     "Request shipping Date",
     "Waiting to Ship",
@@ -45,13 +49,39 @@ var statActs = {
   "Order Completed": "No Action needed"
 }
 
-var leadstats = database.ref('leadstats/');
-
-var customerIDForFollowups = 0;
-var statusList = 
-
 ///////////////////// add event listeners for database references
+function addCustomerFollowUpListener(id) {
+  database.ref('customer/'+ id + '/followups').on('child_added',function(snap){
+    database.ref('leadstats/'+snap.val()).transaction(function(stat){
+      if (stat === null) {
+        return stat + 1;
+      } else {
+        return stat + 1;
+      }
+    },function(error,committed,snapshot){
 
+    });
+  }); 
+}
+
+customers.orderByKey().limitToLast(5).on("value", function(snapshot) {
+  $('#lead-table').empty();
+  snapshot.forEach(e =>{
+    $('#lead-table').append('<tr><td>'+e.key+'</td><td>'+e.val().firstname+' '+e.val().lastname+'</td><td>'+e.val().businessname+'</td></tr>');
+  });
+});
+
+customers.on("child_added",function(snapshot) {
+  database.ref('leadstats/'+snapshot.val().leadstatus).transaction(function(stat){
+    if (stat === null) {
+      return stat + 1;
+    } else {
+      return stat + 1;
+    }
+  },function(error,committed,snapshot){
+
+  });
+});
 
 ///////////////////// add event listeners for database references
 ///////////////////// functions that add records to the database
@@ -66,71 +96,34 @@ function addCustomer () {
       return customer + 1;
     }
   }, function(error, committed, snapshot) {
-    customerIDForFollowups = snapshot.val();
     if (error) {
       console.log('Customer ID unchanged!', error);
     } else if (committed) {
       console.log('Incremented Customer ID.');
-      customers.child(customerIDForFollowups).set({
+      customers.child(snapshot.val()).set({
         firstname: formvariables.customer.firstname,
         lastname: formvariables.customer.lastname,
         businessname: formvariables.customer.businessname,
         businessaddress: formvariables.customer.businessaddress,
         workphone: formvariables.customer.workphone,
         mobilephone: formvariables.customer.mobilephone,
-        leadstatus: formvariables.customer.leadstatus
+        leadstatus: formvariables.customer.leadstatus,
+        followups: {
+          status: formvariables.followups.status,
+          action: formvariables.followups.action,
+          date: formvariables.followups.date,
+          note: formvariables.followups.note
+        }
       });
     }
   });
 }
 
-function addFollowUp () {
-  followupID.transaction(function(followup){
-    //followupID.transaction executes the callback function twice
-    //@ first call followup === null
-    //@ second call followup === counter/followup.val() 
-    if (followup === null) {
-      return followup + 1;
-    } else {
-      return followup + 1;
-    }
-  }, function(error, committed, snapshot) {
-    if (error) {
-      console.log('Followup ID unchanged!', error);
-    } else if (committed) {
-      console.log('Incremented Followup ID.');
-      followups.child(snapshot.val()).set({
-        customerid: customerIDForFollowups,
-        status: "not yet there",
-        action: "not yet there",
-        date: $('#next-follow-up-date').val(),
-        note: $('#memo').val()
-      });
-    }
-  });
-}
-function addObjectHistory () {
-  
-}
 ///////////////////// functions that add records to the database
 ///////////////////// functions that get records from the database
 function getCustomerFields(id,objGetter) {
 
 }
-function getJSON(callback) {   
-
-  var xobj = new XMLHttpRequest();
-      xobj.overrideMimeType("application/json");
-  xobj.open('GET', 'C:/Users/vorga/Documents/ACTIVE-SYNCED/42/project1.json', true); // Replace 'my_data' with the path to your file
-  xobj.onreadystatechange = function () {
-        if (xobj.readyState == 4 && xobj.status == "200") {
-          // Required use of an anonymous callback as .open will NOT return a value but simply returns undefined in asynchronous mode
-          callback(xobj.responseText);
-        }
-  };
-  xobj.send(null);  
-}
-
 
 
 
@@ -140,10 +133,3 @@ function getJSON(callback) {
 ///////////////////// functions that get records from the database
 
 //create event listener for each lead status
-for (var k in leadstatsKeys) {
-  customers.orderByChild("leadstatus").equalTo(k).on("child_added", function(snapshot) {
-    if( leadstatsKeys.hasOwnProperty(k) ) {
-      leadstatsKeys[k] = snapshot.numChildren();
-    }
-  });
-}
