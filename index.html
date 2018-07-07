@@ -39,11 +39,11 @@
         </nav>
         <div class="row">
             <!--Calendar-->
-            <div class="col s6" id="calendarSec">
+            <div class="col s12 m6" id="calendarSec">
                 <nav>
                     <div class="nav-wrapper orange darken-3">
                         <a href="#" class="brand-logo center" id="date">6-30-2018</a>
-                        <a class="btn left" id="today">
+                        <a class="btn orange darken-4 left" id="today">
                             Today </a>
                         <a class="btn orange darken-4 right" id="nextDay"> Next </a>
 
@@ -63,7 +63,7 @@
                                 <li>${snapshot.val().followups.note}</li>
                             </ul>
                             <div class="card-action">
-                                <button data-target="modal2" class="btn-small modal-trigger orange darken-4" id="lead-addded" href="#modal2">Follow Up</button>
+                                <button data-target="modal2" class="btn-small right modal-trigger orange darken-4" id="lead-addded" href="#modal2">Follow Up</button>
                             </div>
                         </div>
                     </div>`;
@@ -81,8 +81,8 @@
                                 <li>Note: Customer was busy, call back today around 2:15pm.</li>
                             </ul>
                             <div class="card-action">
-                                <button class="btn-small orange darken-4">Follow Up</button>
-                            </div>
+                                    <button data-target="modal2" class="btn-small right modal-trigger orange darken-4" id="lead-addded" href="#modal2">Follow Up</button>
+                                </div>
                         </div>
                     </div>
 
@@ -94,8 +94,8 @@
                                 <li>Note: Customer was busy, call back today around 2:15pm.</li>
                             </ul>
                             <div class="card-action">
-                                <button class="btn-small orange darken-4">Follow Up</button>
-                            </div>
+                                    <button data-target="modal2" class="btn-small right modal-trigger orange darken-4" id="lead-addded" href="#modal2">Follow Up</button>
+                                </div>
                         </div>
                     </div>
                 </div>
@@ -104,17 +104,13 @@
 
             </div>
 
-            <div class="col s6" id="stats">
-                <div class="section" id="clientChartTitle">
+            <div class="col s12 m6" id="stats">
                     <nav>
                         <div class="nav-wrapper orange darken-3">
-                            <a href="#" class="brand-logo" id="leadHead">Last 5 Customers Added</a>
-
-                            <button data-target="modal1" class="btn orange darken-4 modal-trigger" id="lead-added" href="#modal1">Add New</button>
-
+                            <a href="#" class="brand-logo">New Customers</a>
+                            <a data-target="modal1" class="btn-small right orange darken-4 modal-trigger" id="lead-added" href="#modal1">Add New</a>                     
                         </div>
                     </nav>
-                </div>
 
 
 
@@ -125,9 +121,10 @@
                     <table class="stripped">
                         <thead>
                             <tr>
-                                <th>Lead ID</th>
                                 <th>Customer Name</th>
                                 <th>Business Name</th>
+                                <th>Wok Phone</th>
+
                             </tr>
                         </thead>
                         <tbody id="lead-table">
@@ -135,27 +132,7 @@
                                 <td>12345</td>
                                 <td>Frank Pham</td>
                                 <td>Beauty Salon</td>
-                            </tr>
-                            <tr>
-                                <td>12345</td>
-                                <td>Frank Pham</td>
-                                <td>Beauty Salon</td>
-                            </tr>
-                            <tr>
-                                <td>12345</td>
-                                <td>Frank Pham</td>
-                                <td>Beauty Salon</td>
-                            </tr>
-                            <tr>
-                                <td>12345</td>
-                                <td>Frank Pham</td>
-                                <td>Beauty Salon</td>
-                            </tr>
-                            <tr>
-                                <td>12345</td>
-                                <td>Frank Pham</td>
-                                <td>Beauty Salon</td>
-                            </tr> -->
+                                </tr> -->
                         </tbody>
                     </table>
 
@@ -178,12 +155,8 @@
                     </div>
                 </div>
 
-
-
-            </div>
-
-
         </div>
+    </div>
     </div>
     </div>
 
@@ -194,11 +167,11 @@
     <div id="modal1" class="modal">
         <div class="modal-content">
             <div class="row">
-                <div class="col s6">
+                <div class="col s6 m6">
                     <h4> Add New Lead</h4>
                 </div>
                 <div class="cold s6">
-                    <div class="col s6">
+                    <div class="col s6 m6">
                         <select id="lead-status">
                             <option disabled selected>Select Lead Status</option>
                             <option value="potential" id="potential">Potential</option>
@@ -210,25 +183,25 @@
                 </div>
             </div>
             <div class="row">
-                <form id="form-customer" class="col s12" data-parsley-validate="">
+                <form id="form-customer" class="col s12 m12" data-parsley-validate="">
 
                     <div class="row">
-                        <div class="input-field col s6">
+                        <div class="input-field col s6 m6">
                             <label for="first-name">First Name</label>
                             <input id="first-name" type="text" class="validate" required="">
                         </div>
-                        <div class="input-field col s6">
+                        <div class="input-field col s6 m6">
                             <label for="last-name">Last Name</label>
                             <input id="last-name" type="text" class="validate" required="">
                         </div>
                     </div>
 
                     <div class="row">
-                        <div class="input-field col s6">
+                        <div class="input-field col s6 m6">
                             <label for="busines-name">Business Name</label>
                             <input id="business-name" type="text" class="validate" required="">
                         </div>
-                        <div class="input-field col s6">
+                        <div class="input-field col s6 m6">
                             <label for="business-address">Address</label>
                             <input id="business-autocomplete" onFocus="geolocate()" type="text" class="validate" placeholder="" required="">
 
@@ -236,12 +209,12 @@
                     </div>
 
                     <div class="row">
-                        <div class="input-field col s6">
+                        <div class="input-field col s6 m6">
                             <label for="work-phone">Work Phone</label>
                             <input id="work-phone" data-parsley-type='digits' class="validate" required="" data-parsley-length="[10,10]" data-parsley-pattern="^\(?([0-9]{3})\)?[-.●]?([0-9]{3})[-.●]?([0-9]{4})$"
                                 placeholder="">
                         </div>
-                        <div class="input-field col s6">
+                        <div class="input-field col s6 m6">
                             <label for="mobile-phone">Mobile Phone</label>
                             <input id="mobile-phone" data-parsley-type='digits' class="validate" required="" data-parsley-length="[10,10]" data-parsley-pattern="^\(?([0-9]{3})\)?[-.●]?([0-9]{3})[-.●]?([0-9]{4})$"
                                 placeholder="">
@@ -253,7 +226,7 @@
                         <button class="waves-effect waves-light btn-small modal-trigger confirmed modal-close" id="new-lead-confirmed" href="#modal2">Save and Next</button>
                         <!--<button type="submit" class="waves-effect waves-light btn-small modal-trigger confirmed" value="validate">Save and Next</button>-->
 
-                        <button class="btn-small black-text grey lighten-4 modal-close" id="close-button">Close</button>
+                        <button class="btn-small right black-text grey lighten-4 modal-close" id="close-button">Close</button>
                     </div>
                 </form>
             </div>
@@ -265,14 +238,10 @@
     <!--Start modal 2 - adding new follow-up Card-->
     <div id="modal2" class="modal">
         <div class="modal-content">
-            <h4>Follow-Up: Lead #
-                <span id="followed-up-lead">1234</span>
-            </h4>
+            <h4>Follow-Up</h4>
             <div class="row">
-                <div class="col s6">
+                <div class="col s6 m6">
                     <br>
-                    <p>Lead #:
-                        <span id="show-lead-id">1234</span>
                     </p>
                     <P>Lead Status:
                         <span id="show-lead-status">Interested</span>
@@ -296,11 +265,11 @@
                     <br>
 
                 </div>
-                <form id="form-followup" class="col s6">
+                <form id="form-followup" class="col s6 m6">
                     <div class="row">
 
                         <!-- <div class="input-field col s12"> -->
-                        <div class="col s12">
+                        <div class="col s12 m12">
                             <select id="followup-status">
 
                                 <option value="" disabled selected>Select Follow-Up Status</option>
@@ -313,7 +282,7 @@
 
                     <div class="row">
                         <!-- <div class="input-field col s12" id="followup-action"> -->
-                        <div class="col s12">
+                        <div class="col s12 m12">
                             <select id="followup-action">
                                 <option value="" disabled selected>Select Next Action</option>
                                 <!-- <option value="1">Call Back</option>
@@ -324,14 +293,14 @@
                     </div>
 
                     <div class="row">
-                        <div class="input-field col s12">
+                        <div class="input-field col s12  m12">
                             <label>Select next follow-up date</label>
                             <input id="next-follow-up-date" type="text" class="datepicker">
                         </div>
 
                     </div>
                     <div class="row">
-                        <div class="input-field col s12">
+                        <div class="input-field col s12 m12">
                             <label for="memo">Memo</label>
                             <textarea id="memo" type="text" class="materialize-textarea" data-length="300"></textarea>
                         </div>
@@ -341,7 +310,7 @@
 
                 <div class="row">
                     <button class="waves-effect waves-light btn-small modal-trigger modal-close confirmed" id="follow-up-confirmed">Done</button>
-                    <button class="btn-small black-text grey lighten-4 modal-close" id="close-button">Close</button>
+                    <button class="btn-small right black-text grey lighten-4 modal-close" id="close-button">Close</button>
                 </div>
             </div>
         </div>
@@ -358,7 +327,7 @@
                 </h4>
             </div>
             <div class="row">
-                <div class="col s6">
+                <div class="col s6 m6">
                     <p>Customer:
                         <span id="display-customer-name">phung pham</span>
                     </p>
@@ -366,7 +335,7 @@
                         <span id="display-business-name">Beauty Salon</span>
                     </p>
                 </div>
-                <div class="col s6">
+                <div class="col s6 m6">
                     <p>Work Phone:
                         <spa id="display-work-phone">(407) 123-356</spa>
                     </p>
