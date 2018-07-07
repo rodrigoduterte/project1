@@ -13,6 +13,10 @@
   padding: 0;
 }
 
+#newCustomers {
+  margin-left: 10px;
+}
+
 th {
   padding-top: 0;
 }
@@ -41,10 +45,6 @@ th {
 
 #custName {
   font-weight: bold;
-}
-
-#lead-added {
-  margin: 30px;
 }
 
 #nextDay {
