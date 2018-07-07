@@ -177,7 +177,7 @@
                 <div class="cold s6">
                     <div class="col s6 m6">
                         <select id="lead-status">
-                            <option disabled selected>Select Lead Status</option>
+                            <!-- <option disabled selected>Select Lead Status</option> -->
                             <option value="potential" id="potential">Potential</option>
                             <option value="interested" id="interested">Interested</option>
                             <option value="purchased" id="purchased">Purchased</option>
@@ -230,7 +230,9 @@
                         <button class="waves-effect waves-light btn-small modal-trigger confirmed modal-close" id="new-lead-confirmed" href="#modal2">Save and Next</button>
                         <!--<button type="submit" class="waves-effect waves-light btn-small modal-trigger confirmed" value="validate">Save and Next</button>-->
 
-                        <button class="btn-small right black-text grey lighten-4 modal-close" id="close-button">Close</button>
+
+                        <button class="btn-small black-text grey lighten-4 modal-close" id="close-button1">Close</button>
+
                     </div>
                 </form>
             </div>
@@ -242,29 +244,37 @@
     <!--Start modal 2 - adding new follow-up Card-->
     <div id="modal2" class="modal">
         <div class="modal-content">
-            <h4>Follow-Up</h4>
+
+            <!-- <h4>Follow-Up: Lead #
+                <span id="followed-up-lead">1234</span>
+            </h4> -->
+
             <div class="row">
                 <div class="col s6 m6">
                     <br>
-                    </p>
+
+                    <!-- <p>Lead #:
+                        <span id="show-lead-id">1234</span>
+                    </p> -->
+
                     <P>Lead Status:
-                        <span id="show-lead-status">Interested</span>
+                        <span id="show-lead-status"></span>
                     </P>
                     <br>
                     <p>Customer:
-                        <span id="show-customer-name">phung pham</span>
+                        <span id="show-customer-name"></span>
                     </p>
 
                     <p>Business:
-                        <span id="show-business-name">Beauty Salon</span>
+                        <span id="show-business-name"></span>
                     </p>
                     <br>
                     <p>Work Phone:
-                        <span id="show-work-phone">(407) 123-4567</span>
+                        <span id="show-work-phone"></span>
                     </p>
 
                     <p>Mobile Phone:
-                        <span id="show-mobile-phone">(321) 123-4567</span>
+                        <span id="show-mobile-phone"></span>
                     </p>
                     <br>
 
@@ -276,8 +286,9 @@
                         <div class="col s12 m12">
                             <select id="followup-status">
 
-                                <option value="" disabled selected>Select Follow-Up Status</option>
-                                <!-- <! <option value="1">Customer is busy</option> -->
+                                <!-- <option value="" disabled selected>Select Follow-Up Status</option> -->
+                                <!-- <!-- <option value="1">Customer is busy</option> -->
+
                                 <!-- <option value="2">Need time for final decision</option>
                                 <option value="3">Purchased</option> -->-->
                             </select>
@@ -288,7 +299,7 @@
                         <!-- <div class="input-field col s12" id="followup-action"> -->
                         <div class="col s12 m12">
                             <select id="followup-action">
-                                <option value="" disabled selected>Select Next Action</option>
+                                <!-- <option value="" disabled selected>Select Next Action</option> -->
                                 <!-- <option value="1">Call Back</option>
                                 <option value="2">Check Inventory</option>
                                 <option value="3">Proceed Payment</option> -->
@@ -314,7 +325,9 @@
 
                 <div class="row">
                     <button class="waves-effect waves-light btn-small modal-trigger modal-close confirmed" id="follow-up-confirmed">Done</button>
-                    <button class="btn-small right black-text grey lighten-4 modal-close" id="close-button">Close</button>
+
+                    <button class="btn-small black-text grey lighten-4 modal-close" id="close-button2">Close</button>
+
                 </div>
             </div>
         </div>
@@ -325,26 +338,26 @@
     <!--Start modal 3 - Viewing follow-up History-->
     <div id="modal3" class="modal">
         <div class="modal-content">
-            <div class="row">
+            <!-- <div class="row">
                 <h4>Follow-Up History: Lead #
                     <span id="display-lead-id">1234</span>
                 </h4>
-            </div>
+            </div> -->
             <div class="row">
                 <div class="col s6 m6">
                     <p>Customer:
-                        <span id="display-customer-name">phung pham</span>
+                        <span id="display-customer-name"></span>
                     </p>
                     <p>Business Name:
-                        <span id="display-business-name">Beauty Salon</span>
+                        <span id="display-business-name"></span>
                     </p>
                 </div>
                 <div class="col s6 m6">
                     <p>Work Phone:
-                        <spa id="display-work-phone">(407) 123-356</spa>
+                        <span id="display-work-phone"></span>
                     </p>
                     <p>Mobile Phone:
-                        <span id="display-mobile-phone">(321) 123-456</span>
+                        <span id="display-mobile-phone"></span>
                     </p>
                 </div>
             </div>
@@ -371,8 +384,6 @@
             </div>
         </div>
         <div>
-
-
 
 
 
