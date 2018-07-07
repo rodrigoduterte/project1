@@ -51,18 +51,26 @@
                     </div>
                 </nav>
                 <div class="section" id="calendar">
+
+                <script>
+                    customers.on("child_added", function (snapshot) {
+                    const markup = `
                     <div class="card blue-grey darken-3">
                         <div class="card-content blue-grey lighten-5">
-                            <h5 class="card-title" id="custName">#001 Customer Name</h5>
+                            <h5 class="card-title" id="custName">${snapshot.val().businessname}</h5>
                             <ul>
-                                <li>Action: Call Back</li>
-                                <li>Note: Customer was busy, call back today around 2:15pm.</li>
+                                <li>${snapshot.val().followups.action}</li>
+                                <li>${snapshot.val().followups.note}</li>
                             </ul>
                             <div class="card-action">
                                 <button data-target="modal2" class="btn-small right modal-trigger orange darken-4" id="lead-addded" href="#modal2">Follow Up</button>
                             </div>
                         </div>
-                    </div>
+                    </div>`;
+
+                    $('#calendar').append(markup);
+                });
+                </script>
 
 
                     <div class="card blue-grey darken-3">
@@ -100,11 +108,9 @@
                     <nav>
                         <div class="nav-wrapper orange darken-3">
                             <a href="#" class="brand-logo">New Customers</a>
-                            <a data-target="modal1" class="btn-small right orange darken-4 modal-trigger" id="lead-added" href="#modal1">Add New</a>
-                        
+                            <a data-target="modal1" class="btn-small right orange darken-4 modal-trigger" id="lead-added" href="#modal1">Add New</a>                     
                         </div>
                     </nav>
-
 
 
 
@@ -132,7 +138,9 @@
 
 
                 </div>
+                
                 <br>
+                
                 <div class="section" id="statusChartTitle">
                     <nav>
                         <div class="nav-wrapper orange lighten-1">
@@ -140,7 +148,7 @@
                         </div>
                     </nav>
                 </div>
-                <br>
+                
                 <div class="section" id="chartSection">
                     <div id="statusChart">
 
@@ -265,7 +273,7 @@
                             <select id="followup-status">
 
                                 <option value="" disabled selected>Select Follow-Up Status</option>
-                                <!-- <!-- <option value="1">Customer is busy</option> -->
+                                <!-- <! <option value="1">Customer is busy</option> -->
                                 <!-- <option value="2">Need time for final decision</option>
                                 <option value="3">Purchased</option> --> -->
                             </select>
