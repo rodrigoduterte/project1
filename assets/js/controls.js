@@ -98,7 +98,7 @@ formvariables.saveCustomer = function (cansave) {
         formvariables.customer.firstname = $('#first-name').val(),
         formvariables.customer.lastname = $('#last-name').val(),
         formvariables.customer.businessname = $('#business-name').val(),
-        formvariables.customer.businessaddress = $('#business-autocomplete').val(),
+        formvariables.customer.businessaddress = $('#addressInput').val(),
         formvariables.customer.workphone = $('#work-phone').val(),
         formvariables.customer.mobilephone = $('#mobile-phone').val(),
         formvariables.customer.leadstatus = ($('#lead-status option:selected').val() != "") ? $('#lead-status option:selected').text() : ""
