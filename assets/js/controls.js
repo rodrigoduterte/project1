@@ -118,6 +118,13 @@ $(document).ready(function() {
 
 });
 
+$(window).on('load', function() {
+    $('#status').fadeOut(9000);
+    $('#preloader').delay(1000).fadeOut();
+
+});
+
+
 formvariables.saveCustomer = function(cansave) {
   if (cansave) {
     formvariables.customer.firstname = $("#first-name").val();
