@@ -46,6 +46,10 @@ th {
     border: none;
 }
 
+#custName{
+    font-weight: bold;
+}
+
 #lead-added {
     position: relative;
     float: right;
@@ -55,6 +59,7 @@ th {
 
 #nextDay {
     margin: 12px;
+    display: none;
 }
 
 #today {
